@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src __CSP_SOURCE__ 'unsafe-inline'; script-src 'nonce-__NONCE__';">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--vscode-sideBar-background);
+  color: var(--vscode-sideBar-foreground);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-size: var(--vscode-font-size, 13px);
+}
+
+/* ── 标签栏 ── */
+.toolbar {
+  display: flex;
+  border-bottom: 1px solid var(--vscode-panel-border);
+  flex-shrink: 0;
+}
+.tabs { display: flex; flex: 1; overflow-x: auto; }
+.tab {
+  background: none; border: none; color: var(--vscode-sideBar-foreground);
+  padding: 6px 12px; cursor: pointer; font-size: 12px; white-space: nowrap;
+  border-bottom: 2px solid transparent; opacity: 0.7;
+}
+.tab:hover { opacity: 1; background: var(--vscode-list-hoverBackground); }
+.tab.active { opacity: 1; border-bottom-color: var(--vscode-focusBorder); font-weight: 600; }
+.toolbar-clear {
+  background: none; border: none; color: var(--vscode-sideBar-foreground);
+  padding: 6px 10px; cursor: pointer; font-size: 12px; opacity: 0.6; flex-shrink: 0;
+}
+.toolbar-clear:hover { opacity: 1; }
+
+/* ── 标签页内容 ── */
+.tab-content { display: none; flex-direction: column; flex: 1; min-height: 0; }
+.tab-content.active { display: flex; }
+
+/* ── 聊天 ── */
+.chat-container { flex: 1; overflow-y: auto; padding: 8px; display: flex; flex-direction: column; gap: 8px; }
+.message { padding: 8px 10px; border-radius: 6px; white-space: pre-wrap; word-break: break-word; line-height: 1.4; font-size: 12px; }
+.message.user { background: var(--vscode-textBlockQuote-background); align-self: flex-end; border: 1px solid var(--vscode-panel-border); }
+.message.assistant { background: var(--vscode-editor-background); border: 1px solid var(--vscode-panel-border); }
+.message.system { background: transparent; color: var(--vscode-descriptionForeground); font-size: 11px; text-align: center; }
+.message pre { background: var(--vscode-textCodeBlock-background); padding: 8px; border-radius: 4px; overflow-x: auto; margin: 4px 0; font-size: 11px; }
+.message code { background: var(--vscode-textCodeBlock-background); padding: 1px 4px; border-radius: 3px; font-size: 11px; }
+
+.api-status {
+  display: flex; align-items: center; gap: 6px; padding: 5px 8px;
+  border-bottom: 1px solid var(--vscode-panel-border);
+  color: var(--vscode-descriptionForeground); font-size: 11px; flex-shrink: 0;
+}
+.api-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--vscode-testing-iconFailed); flex: 0 0 auto; }
+.api-dot.configured { background: var(--vscode-testing-iconPassed); }
+.api-status-text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.api-status button {
+  background: none; border: none; color: var(--vscode-textLink-foreground);
+  cursor: pointer; font-size: 11px; padding: 1px 3px;
+}
+.api-status button:hover { text-decoration: underline; }
+.api-status button:disabled { opacity: 0.45; cursor: default; }
+
+.loading { display: none; padding: 4px 8px; text-align: center; color: var(--vscode-descriptionForeground); font-size: 11px; }
+.loading.active { display: block; }
+
+/* ── 代码块操作按钮 ── */
+.code-block-wrapper { margin: 8px 0; border: 1px solid var(--vscode-panel-border); border-radius: 4px; overflow: hidden; }
+.code-block-header { display: flex; justify-content: space-between; align-items: center; padding: 4px 8px; background: var(--vscode-textCodeBlock-background); border-bottom: 1px solid var(--vscode-panel-border); font-size: 11px; }
+.code-lang-label { font-weight: 600; color: var(--vscode-textLink-foreground); }
+.code-block-wrapper pre { margin: 0; border-radius: 0; background: var(--vscode-textCodeBlock-background); padding: 8px; overflow-x: auto; font-size: 11px; line-height: 1.4; }
+.code-block-actions { display: flex; gap: 4px; padding: 4px 8px; background: var(--vscode-textCodeBlock-background); border-top: 1px solid var(--vscode-panel-border); }
+.code-btn {
+  background: var(--vscode-button-secondaryBackground, var(--vscode-button-background));
+  color: var(--vscode-button-secondaryForeground, var(--vscode-button-foreground));
+  border: none; border-radius: 3px; padding: 3px 8px; cursor: pointer;
+  font-size: 11px; white-space: nowrap;
+}
+.code-btn:hover { background: var(--vscode-button-hoverBackground); }
+
+/* ── 输入区域（通用） ── */
+.input-area { padding: 6px; border-top: 1px solid var(--vscode-panel-border); display: flex; gap: 4px; flex-shrink: 0; }
+.input-area textarea {
+  flex: 1; background: var(--vscode-input-background); color: var(--vscode-input-foreground);
+  border: 1px solid var(--vscode-input-border); border-radius: 4px; padding: 6px;
+  resize: none; font-family: inherit; font-size: 12px; min-height: 32px; max-height: 80px;
+}
+.input-area textarea:focus { outline: none; border-color: var(--vscode-focusBorder); }
+.input-area button {
+  background: var(--vscode-button-background); color: var(--vscode-button-foreground);
+  border: none; border-radius: 4px; padding: 4px 12px; cursor: pointer;
+  font-size: 12px; white-space: nowrap;
+}
+.input-area button:hover { background: var(--vscode-button-hoverBackground); }
+.input-area button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── 工具面板（修改/生成） ── */
+.tool-panel { flex: 1; display: flex; flex-direction: column; min-height: 0; padding: 8px; gap: 8px; }
+.tool-panel .result-area { flex: 1; overflow-y: auto; }
+.tool-panel .hint { color: var(--vscode-descriptionForeground); font-size: 11px; text-align: center; padding: 20px 0; }
+</style>
+</head>
+<body>
+
+<!-- 标签栏 -->
+<div class="toolbar">
+  <div class="tabs">
+    <button class="tab active" data-tab="chat">💬 Chat</button>
+    <button class="tab" data-tab="modify">✏️ Modify</button>
+    <button class="tab" data-tab="generate">🔫 Generate</button>
+  </div>
+  <button class="toolbar-clear" id="btnLoadKb">📂 Knowledge</button>
+  <button class="toolbar-clear" id="btnClear">🗑️ Clear</button>
+</div>
+
+<!-- ─── 对话标签页 ─── -->
+<div class="tab-content active" id="tab-chat">
+  <div class="api-status">
+    <span class="api-dot" id="apiDot"></span>
+    <span class="api-status-text" id="apiStatusText">AI: 检查中...</span>
+    <button id="btnSetKey">设置</button>
+    <button id="btnDeleteKey" disabled>删除</button>
+  </div>
+
+  <div class="chat-container" id="chatContainer"></div>
+
+  <div class="loading" id="loading">
+    <span>● ● ●</span> AI 思考中...
+  </div>
+
+  <div class="input-area">
+    <textarea id="inputField" rows="1"
+      placeholder="描述你想要的单位或提问..."></textarea>
+    <button id="sendBtn">发送</button>
+  </div>
+</div>
+
+<!-- ─── 修改文件标签页 ─── -->
+<div class="tab-content" id="tab-modify">
+  <div class="tool-panel">
+    <div style="font-size:11px;color:var(--vscode-descriptionForeground);">
+      Current file: <span id="modifyFileName">none</span>
+    </div>
+    <div class="result-area" id="modifyResult">
+      <div class="hint">打开一个 INI 文件，在这里描述要修改的内容</div>
+    </div>
+    <div class="input-area">
+      <textarea id="modifyInput" rows="2"
+        placeholder="例如：把血量改成 500、加一个激光武器"></textarea>
+      <button id="modifyBtn">✏️ 开始修改</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 生成单位标签页 ─── -->
+<div class="tab-content" id="tab-generate">
+  <div class="tool-panel">
+    <div class="result-area" id="generateResult">
+      <div class="hint">描述你想要的新单位，AI 会生成完整的 INI 配置</div>
+    </div>
+    <div class="input-area">
+      <textarea id="generateInput" rows="2"
+        placeholder="例如：每秒射5发、伤害20的反装甲轻型坦克"></textarea>
+      <button id="generateBtn">🔫 开始生成</button>
+    </div>
+  </div>
+</div>
+
+<script nonce="__NONCE__">
+(function() {
+  "use strict";
+  try {
+    var LOCALE = __LOCALE__;
+    var vscode = acquireVsCodeApi();
+    var currentTab = "chat";
+
+    // ── 工具函数 ──
+    function postMsg(type, data) {
+      if (!vscode) { console.error("vscode API 不可用"); return; }
+      var msg = { type: type };
+      if (data) Object.assign(msg, data);
+      vscode.postMessage(msg);
+    }
+
+    function getEl(id) { return document.getElementById(id); }
+
+    // ── 本地化：将 LOCALE 字符串应用到 UI 元素 ──
+    function applyLocale() {
+      // 标签按钮
+      var tabMap = { chat: "tabChat", modify: "tabModify", generate: "tabGenerate" };
+      document.querySelectorAll(".tab").forEach(function(t) {
+        var key = tabMap[t.dataset.tab];
+        if (key && LOCALE[key]) t.textContent = LOCALE[key];
+      });
+      // 工具栏按钮
+      var btnMap = { btnLoadKb: "btnKnowledge", btnClear: "btnClear" };
+      for (var id in btnMap) {
+        var el = getEl(id);
+        if (el && LOCALE[btnMap[id]]) el.textContent = LOCALE[btnMap[id]];
+      }
+      // 对话标签页
+      if (LOCALE.inputPlaceholder) getEl("inputField").placeholder = LOCALE.inputPlaceholder;
+      if (LOCALE.btnSend) getEl("sendBtn").textContent = LOCALE.btnSend;
+      // 修改标签页
+      if (LOCALE.modifyPlaceholder) getEl("modifyInput").placeholder = LOCALE.modifyPlaceholder;
+      if (LOCALE.modifyBtnText) getEl("modifyBtn").textContent = LOCALE.modifyBtnText;
+      if (LOCALE.modifyHint) getEl("modifyResult").innerHTML = '<div class="hint">' + LOCALE.modifyHint + '</div>';
+      // 生成标签页
+      if (LOCALE.generatePlaceholder) getEl("generateInput").placeholder = LOCALE.generatePlaceholder;
+      if (LOCALE.generateBtnText) getEl("generateBtn").textContent = LOCALE.generateBtnText;
+      if (LOCALE.generateHint) getEl("generateResult").innerHTML = '<div class="hint">' + LOCALE.generateHint + '</div>';
+      // 当前文件名标签
+      if (LOCALE.currentFile) {
+        var fnEl = getEl("modifyFileName");
+        if (fnEl) fnEl.textContent = LOCALE.noFileOpen || "none";
+        var cfEl = document.querySelector("#tab-modify .tool-panel div");
+        if (cfEl && cfEl.firstChild) cfEl.firstChild.textContent = LOCALE.currentFile;
+      }
+    }
+    applyLocale();
+
+    // ── 标签切换 ──
+    var tabs = document.querySelectorAll(".tab");
+    tabs.forEach(function(tab) {
+      tab.addEventListener("click", function() {
+        var tabName = tab.dataset.tab;
+        if (tabName === currentTab) return;
+
+        // 切换标签按钮状态
+        document.querySelectorAll(".tab").forEach(function(t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+
+        // 切换内容面板
+        document.querySelectorAll(".tab-content").forEach(function(p) { p.classList.remove("active"); });
+        getEl("tab-" + tabName).classList.add("active");
+
+        currentTab = tabName;
+      });
+    });
+
+    // ── 清空按钮（根据当前标签页清空对应区域） ──
+    getEl("btnLoadKb").addEventListener("click", function() {
+      postMsg("loadKnowledge");
+    });
+
+    getEl("btnClear").addEventListener("click", function() {
+      if (currentTab === "chat") {
+        getEl("chatContainer").innerHTML = "";
+        postMsg("clearChat");
+      } else if (currentTab === "modify") {
+        getEl("modifyResult").innerHTML = '<div class="hint">打开一个 INI 文件，在这里描述要修改的内容</div>';
+      } else if (currentTab === "generate") {
+        getEl("generateResult").innerHTML = '<div class="hint">描述你想要的新单位，AI 会生成完整的 INI 配置</div>';
+      }
+    });
+
+    // ── 对话标签页 ──
+    var chatContainer = getEl("chatContainer");
+    var inputEl = getEl("inputField");
+    var sendBtn = getEl("sendBtn");
+    var loadingEl = getEl("loading");
+    var apiDot = getEl("apiDot");
+    var apiStatusText = getEl("apiStatusText");
+    var deleteKeyBtn = getEl("btnDeleteKey");
+    var modifyBtn = getEl("modifyBtn");
+    var modifyInput = getEl("modifyInput");
+    var modifyResult = getEl("modifyResult");
+    var generateBtn = getEl("generateBtn");
+    var generateInput = getEl("generateInput");
+    var generateResult = getEl("generateResult");
+
+    // ── 代码块渲染工具（复用） ──
+    var CODE_BLOCK_RE = /```(\w*)\n([\s\S]*?)```/g;
+
+    function hasCodeBlock(text) {
+      CODE_BLOCK_RE.lastIndex = 0;
+      return CODE_BLOCK_RE.test(text);
+    }
+
+    function createCodeBlockWrapper(lang, code) {
+      var wrapper = document.createElement("div");
+      wrapper.className = "code-block-wrapper";
+      var header = document.createElement("div");
+      header.className = "code-block-header";
+      var label = document.createElement("span");
+      label.className = "code-lang-label";
+      label.textContent = (lang || "code").toUpperCase();
+      header.appendChild(label);
+      wrapper.appendChild(header);
+      var pre = document.createElement("pre");
+      var codeEl = document.createElement("code");
+      codeEl.textContent = code;
+      pre.appendChild(codeEl);
+      wrapper.appendChild(pre);
+      var actions = document.createElement("div");
+      actions.className = "code-block-actions";
+      ["📄 插入当前文件","📝 新建 INI 文件","📋 复制代码"].forEach(function(text, i) {
+        var btn = document.createElement("button");
+        btn.className = "code-btn";
+        var actionNames = ["insert","newFile","copy"];
+        btn.dataset.action = actionNames[i];
+        btn.dataset.code = code;
+        btn.dataset.lang = lang;
+        btn.textContent = text;
+        actions.appendChild(btn);
+      });
+      wrapper.appendChild(actions);
+      return wrapper;
+    }
+
+    function renderMessageContent(text) {
+      var fragment = document.createDocumentFragment();
+      if (!hasCodeBlock(text)) {
+        fragment.appendChild(document.createTextNode(text));
+        return fragment;
+      }
+      CODE_BLOCK_RE.lastIndex = 0;
+      var lastIndex = 0, match;
+      while ((match = CODE_BLOCK_RE.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+          fragment.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+        }
+        var lang = match[1];
+        var code = match[2].replace(/^\n+/, '').replace(/\n+$/, '');
+        fragment.appendChild(createCodeBlockWrapper(lang, code));
+        lastIndex = match.index + match[0].length;
+      }
+      if (lastIndex < text.length) {
+        fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+      }
+      return fragment;
+    }
+
+    function renderMessageElement(el, text) {
+      while (el.firstChild) el.removeChild(el.firstChild);
+      el.appendChild(renderMessageContent(text));
+    }
+
+    // ── 事件委托：代码块按钮 ──
+    document.addEventListener("click", function(e) {
+      var btn = e.target;
+      while (btn && !btn.classList.contains("code-btn")) { btn = btn.parentElement; }
+      if (!btn) return;
+      var action = btn.dataset.action;
+      var code = btn.dataset.code;
+      var lang = btn.dataset.lang || "";
+      if (action === "copy") {
+        navigator.clipboard.writeText(code).then(function() {
+          var orig = btn.textContent;
+          btn.textContent = "✅ 已复制";
+          setTimeout(function() { btn.textContent = orig; }, 1500);
+        }).catch(function() {
+          postMsg("codeBlockAction", { action: action, code: code, lang: lang });
+        });
+      } else {
+        postMsg("codeBlockAction", { action: action, code: code, lang: lang });
+      }
+    });
+
+    // ── 对话框事件 ──
+    getEl("btnSetKey").addEventListener("click", function() { postMsg("setApiKey"); });
+    deleteKeyBtn.addEventListener("click", function() { postMsg("deleteApiKey"); });
+
+    function sendMessage() {
+      var text = inputEl.value.trim();
+      if (!text) return;
+      inputEl.value = "";
+      inputEl.style.height = "32px";
+      postMsg("sendMessage", { text: text });
+    }
+    sendBtn.addEventListener("click", sendMessage);
+    inputEl.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+    });
+    inputEl.addEventListener("input", function() {
+      inputEl.style.height = "32px";
+      inputEl.style.height = Math.min(inputEl.scrollHeight, 80) + "px";
+    });
+
+    // ── 修改标签页 ──
+    modifyBtn.addEventListener("click", function() {
+      var text = modifyInput.value.trim();
+      if (!text) return;
+      modifyInput.value = "";
+      postMsg("modifyFileFromTab", { text: text });
+    });
+    modifyInput.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); modifyBtn.click(); }
+    });
+
+    // ── 生成标签页 ──
+    generateBtn.addEventListener("click", function() {
+      var text = generateInput.value.trim();
+      if (!text) return;
+      generateInput.value = "";
+      postMsg("generateUnitFromTab", { text: text });
+    });
+    generateInput.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); generateBtn.click(); }
+    });
+
+    // ── 接收扩展消息 ──
+    window.addEventListener("message", function(event) {
+      var msg = event.data;
+      switch (msg.type) {
+        // ── 对话消息 ──
+        case "appendMessage":
+          var div = document.createElement("div");
+          div.className = "message " + msg.role;
+          div.dataset.role = msg.role;
+          if (msg.role === "assistant" && hasCodeBlock(msg.content)) {
+            renderMessageElement(div, msg.content);
+          } else {
+            div.textContent = msg.content;
+          }
+          chatContainer.appendChild(div);
+          chatContainer.scrollTop = chatContainer.scrollHeight;
+          break;
+
+        case "streamChunk":
+          var last = chatContainer.lastElementChild;
+          if (!last || last.dataset.role !== "assistant") {
+            last = document.createElement("div");
+            last.className = "message assistant";
+            last.dataset.role = "assistant";
+            chatContainer.appendChild(last);
+          }
+          last.textContent += msg.content;
+          chatContainer.scrollTop = chatContainer.scrollHeight;
+          break;
+
+        case "finalizeStream":
+          loadingEl.classList.remove("active");
+          sendBtn.disabled = false;
+          var lastMsg = chatContainer.lastElementChild;
+          if (lastMsg && lastMsg.dataset.role === "assistant") {
+            var fullText = lastMsg.textContent || "";
+            if (hasCodeBlock(fullText)) renderMessageElement(lastMsg, fullText);
+          }
+          break;
+
+        case "showLoading":
+          loadingEl.classList.add("active");
+          sendBtn.disabled = true;
+          break;
+
+        case "apiStatus":
+          apiDot.classList.toggle("configured", !!msg.configured);
+          apiStatusText.textContent = (LOCALE.aiChecking || "AI: ") + msg.provider + " / " + (msg.configured ? (LOCALE.aiConfigured || "Key set") : (LOCALE.aiNotConfigured || "No Key set"));
+          deleteKeyBtn.disabled = !msg.configured;
+          break;
+
+        case "clearChat":
+          if (currentTab === "chat") chatContainer.innerHTML = "";
+          break;
+
+        // ── 修改标签页结果（追加，不清空历史） ──
+        case "modifyResult":
+          if (msg.error) {
+            var errDiv = document.createElement("div");
+            errDiv.className = "message system";
+            errDiv.textContent = "❌ " + (msg.content || "操作失败");
+            modifyResult.appendChild(errDiv);
+          } else if (msg.content) {
+            var d = document.createElement("div");
+            d.className = "message assistant";
+            if (hasCodeBlock(msg.content)) renderMessageElement(d, msg.content);
+            else d.textContent = msg.content;
+            modifyResult.appendChild(d);
+          } else {
+            var okDiv = document.createElement("div");
+            okDiv.className = "hint";
+            okDiv.style.cssText = "padding:4px 8px;text-align:center;color:var(--vscode-descriptionForeground);font-size:11px;";
+            okDiv.textContent = "✅ 修改已应用，请查看 Diff 预览";
+            modifyResult.appendChild(okDiv);
+          }
+          modifyResult.scrollTop = modifyResult.scrollHeight;
+          break;
+
+        case "modifyAppend":
+          var ma = document.createElement("div");
+          ma.className = "message system";
+          ma.style.cssText = "font-size:11px;text-align:left;padding:4px 8px;";
+          ma.textContent = msg.text || "";
+          modifyResult.appendChild(ma);
+          modifyResult.scrollTop = modifyResult.scrollHeight;
+          break;
+
+        case "modifyConfirm":
+          // 移除旧确认按钮（如果有）
+          var oldConfirm = modifyResult.querySelector(".confirm-group");
+          if (oldConfirm) oldConfirm.remove();
+          // 创建新的确认按钮组
+          var confirmBar = document.createElement("div");
+          confirmBar.className = "confirm-group";
+          confirmBar.style.cssText = "display:flex;gap:8px;padding:8px;justify-content:center;flex-wrap:wrap;";
+          var btns = [
+            { text: "✅ 确认应用", action: "confirmAccept", cls: "modify-confirm-accept" },
+            { text: "❌ 取消", action: "confirmCancel", cls: "modify-confirm-cancel" },
+          ];
+          btns.forEach(function(b) {
+            var btn = document.createElement("button");
+            btn.textContent = b.text;
+            btn.className = b.cls;
+            btn.style.cssText = "border:none;border-radius:4px;padding:6px 16px;cursor:pointer;font-size:12px;background:var(--vscode-button-background);color:var(--vscode-button-foreground);";
+            if (b.action === "confirmCancel") {
+              btn.style.background = "var(--vscode-button-secondaryBackground,var(--vscode-panel-border))";
+              btn.style.color = "var(--vscode-button-secondaryForeground,var(--vscode-sideBar-foreground))";
+            }
+            btn.addEventListener("click", function() {
+              postMsg(b.action);
+              confirmBar.innerHTML = "";
+              confirmBar.style.cssText = "padding:8px;text-align:center;color:var(--vscode-descriptionForeground);font-size:11px;";
+              confirmBar.textContent = "⏳ 处理中...";
+            });
+            confirmBar.appendChild(btn);
+          });
+          modifyResult.appendChild(confirmBar);
+          modifyResult.scrollTop = modifyResult.scrollHeight;
+          break;
+
+        // ── 生成标签页结果（追加，不清空历史） ──
+        case "generateResult":
+          if (msg.error) {
+            var errDiv = document.createElement("div");
+            errDiv.className = "message system";
+            errDiv.textContent = "❌ " + (msg.content || "操作失败");
+            generateResult.appendChild(errDiv);
+          } else if (msg.content) {
+            var d = document.createElement("div");
+            d.className = "message assistant";
+            if (hasCodeBlock(msg.content)) renderMessageElement(d, msg.content);
+            else d.textContent = msg.content;
+            generateResult.appendChild(d);
+          } else {
+            var okDiv = document.createElement("div");
+            okDiv.className = "hint";
+            okDiv.style.cssText = "padding:4px 8px;text-align:center;color:var(--vscode-descriptionForeground);font-size:11px;";
+            okDiv.textContent = "✅ 单位已生成";
+            generateResult.appendChild(okDiv);
+          }
+          generateResult.scrollTop = generateResult.scrollHeight;
+          break;
+
+        case "generateLoading":
+          var gl = document.createElement("div");
+          gl.className = "hint";
+          gl.style.cssText = "padding:4px 8px;text-align:center;color:var(--vscode-descriptionForeground);font-size:11px;";
+          gl.textContent = "⏳ 正在生成...";
+          generateResult.appendChild(gl);
+          generateResult.scrollTop = generateResult.scrollHeight;
+          break;
+
+        case "updateModifyFileName":
+          var fn = getEl("modifyFileName");
+          if (fn) fn.textContent = msg.fileName || "未打开";
+          break;
+      }
+    });
+
+  } catch (e) {
+    var errDiv = document.createElement("div");
+    errDiv.className = "message system";
+    errDiv.textContent = "[WebView 错误] " + (e.message || e);
+    document.getElementById("chatContainer").appendChild(errDiv);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+{
+  "name": "movement",
+  "description": "移动属性",
+  "data": [
+    {
+      "name": "movementType",
+      "type": "movementType",
+      "description": "Movement type (LAND/HOVER/AIR/NAVAL/SUB/AMPHIBIOUS)",
+      "example": "movementType: LAND"
+    },
+    {
+      "name": "moveSpeed",
+      "type": "float",
+      "description": "Movement speed",
+      "example": "moveSpeed: 1.2"
+    },
+    {
+      "name": "moveAccelerationSpeed",
+      "type": "float",
+      "description": "Acceleration speed",
+      "example": "moveAccelerationSpeed: 0.07"
+    },
+    {
+      "name": "moveDecelerationSpeed",
+      "type": "float",
+      "description": "Deceleration speed",
+      "example": "moveDecelerationSpeed: 0.17"
+    },
+    {
+      "name": "reverseSpeedPercentage",
+      "type": "float",
+      "description": "Reverse speed percentage",
+      "example": "reverseSpeedPercentage: 0.5"
+    },
+    {
+      "name": "maxTurnSpeed",
+      "type": "float",
+      "description": "Max turn speed",
+      "example": "maxTurnSpeed: 4"
+    },
+    {
+      "name": "turnAcceleration",
+      "type": "float",
+      "description": "Turn acceleration",
+      "example": "turnAcceleration: 1"
+    },
+    {
+      "name": "targetHeight",
+      "type": "float",
+      "description": "Target height",
+      "example": "targetHeight: 25"
+    },
+    {
+      "name": "targetHeightDrift",
+      "type": "float",
+      "description": "Target height drift",
+      "example": "targetHeightDrift: 1"
+    },
+    {
+      "name": "startingHeightOffset",
+      "type": "float",
+      "description": "Starting height offset",
+      "example": "startingHeightOffset: 40"
+    },
+    {
+      "name": "heightChangeRate",
+      "type": "float",
+      "description": "Height change rate",
+      "example": "heightChangeRate: 3"
+    },
+    {
+      "name": "fallingAcceleration",
+      "type": "float",
+      "description": "Falling acceleration",
+      "example": "fallingAcceleration: 0.5"
+    },
+    {
+      "name": "fallingAccelerationDead",
+      "type": "float",
+      "description": "Falling acceleration dead",
+      "example": "fallingAccelerationDead: 0.2"
+    },
+    {
+      "name": "slowDeathFall",
+      "type": "bool",
+      "description": "Slow death fall (true/false)",
+      "example": "slowDeathFall: true"
+    },
+    {
+      "name": "landOnGround",
+      "type": "bool",
+      "description": "Land on ground (true/false)",
+      "example": "landOnGround: false"
+    },
+    {
+      "name": "moveSlidingMode",
+      "type": "bool",
+      "description": "Sliding mode",
+      "example": "moveSlidingMode: true"
+    },
+    {
+      "name": "moveIgnoringBody",
+      "type": "bool",
+      "description": "Ignore body orientation",
+      "example": "moveIgnoringBody: true"
+    },
+    {
+      "name": "moveSlidingDir",
+      "type": "int",
+      "description": "Sliding direction angle",
+      "example": "moveSlidingDir: 180"
+    },
+    {
+      "name": "joinsGroupFormations",
+      "type": "bool",
+      "description": "Joins group formations (true/false)",
+      "example": "joinsGroupFormations: false"
+    }
+  ]
+}

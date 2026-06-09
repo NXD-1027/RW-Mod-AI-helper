@@ -1,0 +1,25 @@
+{
+  "name": "priority",
+  "data": [
+    {
+      "name": "verylow",
+      "description": "verylow"
+    },
+    {
+      "name": "low",
+      "description": "low"
+    },
+    {
+      "name": "high",
+      "description": "high"
+    },
+    {
+      "name": "veryhigh",
+      "description": "veryhigh"
+    },
+    {
+      "name": "critical",
+      "description": "critical"
+    }
+  ]
+}

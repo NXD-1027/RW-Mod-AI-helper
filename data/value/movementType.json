@@ -1,0 +1,15 @@
+{
+  "name": "movementType",
+  "data": [
+    { "name": "LAND", "description": "陆地移动" },
+    { "name": "HOVER", "description": "悬浮移动" },
+    { "name": "AIR", "description": "空中移动" },
+    { "name": "NAVAL", "description": "水面移动" },
+    { "name": "SUB", "description": "水下移动" },
+    { "name": "AMPHIBIOUS", "description": "两栖移动" },
+    { "name": "NONE", "description": "无法移动" },
+    { "name": "BUILDING", "description": "建筑（无法移动）" },
+    { "name": "OVER_CLIFF", "description": "可过悬崖" },
+    { "name": "OVER_CLIFF_WATER", "description": "可过悬崖+水面" }
+  ]
+}

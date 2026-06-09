@@ -1,0 +1,25 @@
+{
+  "name": "onNewMapSpawn",
+  "data": [
+    {
+      "name": "emptyResourcePools_asNeutral",
+      "description": "emptyResourcePools_asNeutral"
+    },
+    {
+      "name": "emptyOrOccupiedResourcePools_asNeutral",
+      "description": "emptyOrOccupiedResourcePools_asNeutral"
+    },
+    {
+      "name": "mapCenter_asNeutral",
+      "description": "mapCenter_asNeutral"
+    },
+    {
+      "name": "mapCenter_eachActiveTeam",
+      "description": "mapCenter_eachActiveTeam"
+    },
+    {
+      "name": "spawnPoint_eachActiveTeam",
+      "description": "spawnPoint_eachActiveTeam"
+    }
+  ]
+}

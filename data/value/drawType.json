@@ -1,0 +1,7 @@
+{
+  "name": "drawType",
+  "data": [
+    { "name": "normal", "description": "普通渲染" },
+    { "name": "displacement", "description": "置换渲染" }
+  ]
+}

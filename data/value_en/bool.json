@@ -1,0 +1,13 @@
+{
+  "name": "bool",
+  "data": [
+    {
+      "name": "true",
+      "description": "True"
+    },
+    {
+      "name": "false",
+      "description": "False"
+    }
+  ]
+}

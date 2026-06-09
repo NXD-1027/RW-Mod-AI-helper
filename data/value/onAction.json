@@ -1,0 +1,12 @@
+{
+  "name": "onAction",
+  "data": [
+    { "name": "move", "description": "移动" },
+    { "name": "attack", "description": "攻击" },
+    { "name": "idle", "description": "闲置" },
+    { "name": "underConstruction", "description": "建造中" },
+    { "name": "underConstructionWithLinkedBuiltTime", "description": "建造中（关联时间）" },
+    { "name": "queuedUnits", "description": "队列单位" },
+    { "name": "repair", "description": "修理" }
+  ]
+}

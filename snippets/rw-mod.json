@@ -1,0 +1,101 @@
+{
+  "mod.info 模板": {
+    "prefix": "modinfo",
+    "body": [
+      "[core]",
+      "name: ${1:我的MOD}",
+      "version: ${2:1.0}",
+      "description: ${3:MOD说明}",
+      "author: ${4:作者}",
+      "gameVersion: ${5:1.15}",
+      "modVersion: 1",
+      "type: ${6|unit,mod,total-conversion|}"
+    ],
+    "description": "创建一个 mod.info 文件"
+  },
+
+  "单位 INI 完整模板": {
+    "prefix": "unit",
+    "body": [
+      "[core]",
+      "name: ${1:new_unit}",
+      "displayText: ${2:新单位}",
+      "class: CustomUnitMetadata",
+      "price: ${3:500}",
+      "maxHp: ${4:400}",
+      "mass: ${5:500}",
+      "techLevel: ${6:1}",
+      "buildSpeed: 0.0015",
+      "radius: 12",
+      "",
+      "[graphics]",
+      "total_frames: 1",
+      "image: ${7:unit.png}",
+      "image_wreak: ${8:unit_dead.png}",
+      "image_shadow: AUTO",
+      "",
+      "[attack]",
+      "canAttack: true",
+      "canAttackFlyingUnits: true",
+      "canAttackLandUnits: true",
+      "turretSize: 7",
+      "turretTurnSpeed: 4",
+      "maxAttackRange: ${9:120}",
+      "shootDelay: ${10:50}",
+      "",
+      "[movement]",
+      "movementType: LAND",
+      "moveSpeed: ${11:1.0}",
+      "moveAccelerationSpeed: 0.03",
+      "moveDecelerationSpeed: 0.06",
+      "maxTurnSpeed: 2.4",
+      "turnAcceleration: 0.2"
+    ],
+    "description": "插入完整单位 INI 模板"
+  },
+
+  "turret 武器挂点": {
+    "prefix": "turret",
+    "body": [
+      "[turret_${1:1}]",
+      "x: ${2:0}",
+      "y: ${3:0}",
+      "projectile: ${4:1}",
+      "turnSpeed: ${5:3}",
+      "shoot_sound: ${6:plasma_fire}",
+      "shoot_flame: ${7:small}"
+    ],
+    "description": "插入炮塔挂点"
+  },
+
+  "maxHp": {
+    "prefix": "maxHp",
+    "body": ["maxHp: $1"],
+    "description": "最大生命值"
+  },
+  "moveSpeed": {
+    "prefix": "moveSpeed",
+    "body": ["moveSpeed: $1"],
+    "description": "移动速度"
+  },
+  "movementType": {
+    "prefix": "movementType",
+    "body": ["movementType: ${1|LAND,HOVER,AIR,NAVAL,SUB,AMPHIBIOUS|}"],
+    "description": "移动类型"
+  },
+  "techLevel": {
+    "prefix": "techLevel",
+    "body": ["techLevel: ${1:1}"],
+    "description": "科技等级 1/2/3"
+  },
+  "directDamage": {
+    "prefix": "directDamage",
+    "body": ["directDamage: $1"],
+    "description": "直接伤害值"
+  },
+  "canAttackFlyingUnits": {
+    "prefix": "canAttackFlyingUnits",
+    "body": ["canAttackFlyingUnits: ${1|true,false|}"],
+    "description": "能否对空"
+  }
+}

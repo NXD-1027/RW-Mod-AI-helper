@@ -1,0 +1,33 @@
+{
+  "name": "onAction",
+  "data": [
+    {
+      "name": "move",
+      "description": "move"
+    },
+    {
+      "name": "attack",
+      "description": "attack"
+    },
+    {
+      "name": "idle",
+      "description": "idle"
+    },
+    {
+      "name": "underConstruction",
+      "description": "underConstruction"
+    },
+    {
+      "name": "underConstructionWithLinkedBuiltTime",
+      "description": "underConstructionWithLinkedBuiltTime"
+    },
+    {
+      "name": "queuedUnits",
+      "description": "queuedUnits"
+    },
+    {
+      "name": "repair",
+      "description": "repair"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "teamColoringMode",
+  "data": [
+    {
+      "name": "pureGreen",
+      "description": "pureGreen"
+    },
+    {
+      "name": "hueAdd",
+      "description": "hueAdd"
+    },
+    {
+      "name": "hueShift",
+      "description": "hueShift"
+    },
+    {
+      "name": "disabled",
+      "description": "disabled"
+    }
+  ]
+}

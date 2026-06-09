@@ -1,0 +1,312 @@
+{
+  "name": "effect",
+  "description": "视觉特效",
+  "data": [
+    {
+      "name": "drawType",
+      "type": "drawType",
+      "description": "Draw type",
+      "example": "drawType: normal"
+    },
+    {
+      "name": "image",
+      "type": "string",
+      "description": "Effect sprite path",
+      "example": "image: explosion.png"
+    },
+    {
+      "name": "imageShadow",
+      "type": "imageShadow",
+      "description": "Image shadow",
+      "example": "imageShadow: AUTO"
+    },
+    {
+      "name": "stripIndex",
+      "type": "int",
+      "description": "Strip index",
+      "example": "stripIndex: 0"
+    },
+    {
+      "name": "life",
+      "type": "float",
+      "description": "Life",
+      "example": "life: 200"
+    },
+    {
+      "name": "lifeRandom",
+      "type": "float",
+      "description": "Life random",
+      "example": "lifeRandom: 50"
+    },
+    {
+      "name": "scaleTo",
+      "type": "float",
+      "description": "Scale to",
+      "example": "scaleTo: 1"
+    },
+    {
+      "name": "scaleFrom",
+      "type": "float",
+      "description": "Scale from",
+      "example": "scaleFrom: 0.5"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "description": "Effect tint color (#RRGGBB)",
+      "example": "color: #ff0000"
+    },
+    {
+      "name": "alpha",
+      "type": "float",
+      "description": "Alpha/opacity",
+      "example": "alpha: 1"
+    },
+    {
+      "name": "teamColorRatio",
+      "type": "float",
+      "description": "Team color ratio",
+      "example": "teamColorRatio: 0.5"
+    },
+    {
+      "name": "fadeInTime",
+      "type": "float / s",
+      "description": "Fade in time",
+      "example": "fadeInTime: 0.5s"
+    },
+    {
+      "name": "fadeOut",
+      "type": "bool",
+      "description": "Fade out time",
+      "example": "fadeOut: true"
+    },
+    {
+      "name": "attachedToUnit",
+      "type": "bool",
+      "description": "Attached to unit (true/false)",
+      "example": "attachedToUnit: true"
+    },
+    {
+      "name": "physics",
+      "type": "bool",
+      "description": "Physics (true/false)",
+      "example": "physics: true"
+    },
+    {
+      "name": "physicsGravity",
+      "type": "float",
+      "description": "Physics gravity",
+      "example": "physicsGravity: 0.1"
+    },
+    {
+      "name": "atmospheric",
+      "type": "bool",
+      "description": "Atmospheric (true/false)",
+      "example": "atmospheric: true"
+    },
+    {
+      "name": "alsoEmitEffects",
+      "type": "string",
+      "description": "Also emit effects",
+      "example": "alsoEmitEffects: CUSTOM:spark*3"
+    },
+    {
+      "name": "alsoEmitEffectsOnDeath",
+      "type": "string",
+      "description": "Also emit effects on death",
+      "example": "alsoEmitEffectsOnDeath: CUSTOM:spark*3"
+    },
+    {
+      "name": "ifSpawnFailsEmitEffects",
+      "type": "string",
+      "description": "If spawn fails emit effects",
+      "example": "ifSpawnFailsEmitEffects: CUSTOM:smoke"
+    },
+    {
+      "name": "alsoPlaySound",
+      "type": "string",
+      "description": "Also play sound",
+      "example": "alsoPlaySound: explosion"
+    },
+    {
+      "name": "spawnChance",
+      "type": "float",
+      "description": "Spawn chance",
+      "example": "spawnChance: 0.5"
+    },
+    {
+      "name": "createWhenOffscreen",
+      "type": "bool",
+      "description": "Create when offscreen (true/false)",
+      "example": "createWhenOffscreen: true"
+    },
+    {
+      "name": "createWhenZoomedOut",
+      "type": "bool",
+      "description": "Create when zoomed out (true/false)",
+      "example": "createWhenZoomedOut: true"
+    },
+    {
+      "name": "createWhenOverLiquid",
+      "type": "bool",
+      "description": "Create when over liquid (true/false)",
+      "example": "createWhenOverLiquid: false"
+    },
+    {
+      "name": "createWhenOverLand",
+      "type": "bool",
+      "description": "Create when over land (true/false)",
+      "example": "createWhenOverLand: true"
+    },
+    {
+      "name": "showInFog",
+      "type": "bool",
+      "description": "Show in fog (true/false)",
+      "example": "showInFog: false"
+    },
+    {
+      "name": "priority",
+      "type": "priority",
+      "description": "Priority",
+      "example": "priority: low"
+    },
+    {
+      "name": "drawUnderUnits",
+      "type": "bool",
+      "description": "Draw under units (true/false)",
+      "example": "drawUnderUnits: false"
+    },
+    {
+      "name": "shadow",
+      "type": "bool",
+      "description": "Shadow (true/false)",
+      "example": "shadow: true"
+    },
+    {
+      "name": "delayedStartTimer",
+      "type": "float / s",
+      "description": "Delayed start timer",
+      "example": "delayedStartTimer: 1s"
+    },
+    {
+      "name": "liveAfterAttachedDies",
+      "type": "bool",
+      "description": "Live after attached dies (true/false)",
+      "example": "liveAfterAttachedDies: true"
+    },
+    {
+      "name": "xOffsetRelative",
+      "type": "float",
+      "description": "X offset relative",
+      "example": "xOffsetRelative: 0"
+    },
+    {
+      "name": "yOffsetRelative",
+      "type": "float",
+      "description": "Y offset relative",
+      "example": "yOffsetRelative: 0"
+    },
+    {
+      "name": "xOffsetAbsolute",
+      "type": "float",
+      "description": "X offset absolute",
+      "example": "xOffsetAbsolute: 0"
+    },
+    {
+      "name": "yOffsetAbsolute",
+      "type": "float",
+      "description": "Y offset absolute",
+      "example": "yOffsetAbsolute: 0"
+    },
+    {
+      "name": "hOffset",
+      "type": "float",
+      "description": "H offset",
+      "example": "hOffset: 0"
+    },
+    {
+      "name": "hSpeed",
+      "type": "float",
+      "description": "H speed",
+      "example": "hSpeed: 1"
+    },
+    {
+      "name": "dirOffset",
+      "type": "float",
+      "description": "Direction offset",
+      "example": "dirOffset: 0"
+    },
+    {
+      "name": "dirSpeed",
+      "type": "float",
+      "description": "Direction speed",
+      "example": "dirSpeed: 1"
+    },
+    {
+      "name": "alwayStartDirAtZero",
+      "type": "bool",
+      "description": "Alway start direction at zero (true/false)",
+      "example": "alwayStartDirAtZero: false"
+    },
+    {
+      "name": "frameIndex",
+      "type": "int",
+      "description": "Frame index",
+      "example": "frameIndex: 0"
+    },
+    {
+      "name": "frameIndexRandom",
+      "type": "bool",
+      "description": "Frame index random (true/false)",
+      "example": "frameIndexRandom: true"
+    },
+    {
+      "name": "total_frames",
+      "type": "int",
+      "description": "Total frames",
+      "example": "total_frames: 3"
+    },
+    {
+      "name": "animateFrameStart",
+      "type": "int",
+      "description": "Animate frame start",
+      "example": "animateFrameStart: 0"
+    },
+    {
+      "name": "animateFrameEnd",
+      "type": "int",
+      "description": "Animate frame end",
+      "example": "animateFrameEnd: 2"
+    },
+    {
+      "name": "animateFramePingPong",
+      "type": "bool",
+      "description": "Animate frame ping pong (true/false)",
+      "example": "animateFramePingPong: true"
+    },
+    {
+      "name": "animateFrameSpeed",
+      "type": "float / s",
+      "description": "Animate frame speed",
+      "example": "animateFrameSpeed: 2s"
+    },
+    {
+      "name": "animateFrameLooping",
+      "type": "bool",
+      "description": "Animate frame looping (true/false)",
+      "example": "animateFrameLooping: true"
+    },
+    {
+      "name": "pivotOffset",
+      "type": "float",
+      "description": "Pivot offset",
+      "example": "pivotOffset: 0"
+    },
+    {
+      "name": "pivotOffsetRandom",
+      "type": "float",
+      "description": "Pivot offset random",
+      "example": "pivotOffsetRandom: 5"
+    }
+  ]
+}

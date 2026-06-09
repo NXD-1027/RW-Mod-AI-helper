@@ -1,0 +1,22 @@
+{
+  "comments": {
+    "lineComment": "#"
+  },
+  "brackets": [
+    ["{", "}"],
+    ["[", "]"]
+  ],
+  "folding": {
+    "offSide": true,
+    "markers": {
+      "start": "^\\s*\\[",
+      "end": "^\\s*(\\[|$)"
+    }
+  },
+  "autoClosingPairs": [
+    { "open": "[", "close": "]" }
+  ],
+  "surroundingPairs": [
+    { "open": "[", "close": "]" }
+  ]
+}

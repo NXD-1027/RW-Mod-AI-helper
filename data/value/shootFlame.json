@@ -1,0 +1,11 @@
+{
+  "name": "shootFlame",
+  "data": [
+    { "name": "small", "description": "小火焰" },
+    { "name": "medium", "description": "中火焰" },
+    { "name": "large", "description": "大火焰" },
+    { "name": "smoke", "description": "烟雾" },
+    { "name": "shockwave", "description": "冲击波" },
+    { "name": "CUSTOM:", "description": "自定义贴图（CUSTOM:贴图路径）" }
+  ]
+}

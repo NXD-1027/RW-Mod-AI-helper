@@ -1,0 +1,414 @@
+{
+  "name": "turret",
+  "description": "炮塔",
+  "data": [
+    {
+      "name": "x",
+      "type": "float",
+      "description": "Turret mount X offset",
+      "example": "x: 0"
+    },
+    {
+      "name": "y",
+      "type": "float",
+      "description": "Turret mount Y offset",
+      "example": "y: 40"
+    },
+    {
+      "name": "copyFrom",
+      "type": "string",
+      "description": "Copy from",
+      "example": "copyFrom: 1"
+    },
+    {
+      "name": "projectile",
+      "type": "string",
+      "description": "Associated projectile ID (e.g., 1, laser)",
+      "example": "projectile: torpedo"
+    },
+    {
+      "name": "altProjectile",
+      "type": "string",
+      "description": "Alt projectile",
+      "example": "altProjectile: spear"
+    },
+    {
+      "name": "altProjectileCondition",
+      "type": "string",
+      "description": "Alt projectile condition",
+      "example": "altProjectileCondition: if self.hp() < 100"
+    },
+    {
+      "name": "barrelX",
+      "type": "float",
+      "description": "Barrel x",
+      "example": "barrelX: 0"
+    },
+    {
+      "name": "barrelY",
+      "type": "float",
+      "description": "Barrel y",
+      "example": "barrelY: 5"
+    },
+    {
+      "name": "barrelHeight",
+      "type": "float",
+      "description": "Barrel height",
+      "example": "barrelHeight: 10"
+    },
+    {
+      "name": "height",
+      "type": "float",
+      "description": "Height",
+      "example": "height: 30"
+    },
+    {
+      "name": "size",
+      "type": "float",
+      "description": "Size",
+      "example": "size: 5"
+    },
+    {
+      "name": "turnSpeed",
+      "type": "float",
+      "description": "Turret turn speed",
+      "example": "turnSpeed: 2"
+    },
+    {
+      "name": "turnSpeedAcceleration",
+      "type": "float",
+      "description": "Turn speed acceleration",
+      "example": "turnSpeedAcceleration: 0.4"
+    },
+    {
+      "name": "turnSpeedDeceleration",
+      "type": "float",
+      "description": "Turn speed deceleration",
+      "example": "turnSpeedDeceleration: 0.2"
+    },
+    {
+      "name": "idleDir",
+      "type": "float",
+      "description": "Idle direction",
+      "example": "idleDir: 180"
+    },
+    {
+      "name": "idleDirReversing",
+      "type": "float",
+      "description": "Idle direction reversing",
+      "example": "idleDirReversing: 30"
+    },
+    {
+      "name": "shouldResetTurret",
+      "type": "bool",
+      "description": "Should reset turret (true/false)",
+      "example": "shouldResetTurret: false"
+    },
+    {
+      "name": "idleSpin",
+      "type": "float",
+      "description": "Idle spin",
+      "example": "idleSpin: 2"
+    },
+    {
+      "name": "idleSweepAngle",
+      "type": "int",
+      "description": "Idle sweep angle",
+      "example": "idleSweepAngle: 35"
+    },
+    {
+      "name": "idleSweepDelay",
+      "type": "float",
+      "description": "Idle sweep delay",
+      "example": "idleSweepDelay: 20"
+    },
+    {
+      "name": "idleSweepSpeed",
+      "type": "float",
+      "description": "Idle sweep speed",
+      "example": "idleSweepSpeed: 0.3"
+    },
+    {
+      "name": "idleSweepCondition",
+      "type": "string",
+      "description": "Idle sweep condition",
+      "example": "idleSweepCondition: if self.hp() > 400"
+    },
+    {
+      "name": "attachedTo",
+      "type": "string",
+      "description": "Attached to",
+      "example": "attachedTo: base"
+    },
+    {
+      "name": "slave",
+      "type": "bool",
+      "description": "Slave (true/false)",
+      "example": "slave: true"
+    },
+    {
+      "name": "isMainNanoTurret",
+      "type": "bool",
+      "description": "Is main nano turret (true/false)",
+      "example": "isMainNanoTurret: true"
+    },
+    {
+      "name": "energyUsage",
+      "type": "float",
+      "description": "Energy usage",
+      "example": "energyUsage: 1"
+    },
+    {
+      "name": "resourceUsage",
+      "type": "string",
+      "description": "Resource usage",
+      "example": "resourceUsage: credits=5"
+    },
+    {
+      "name": "delay",
+      "type": "float / s",
+      "description": "Delay",
+      "example": "delay: 2s"
+    },
+    {
+      "name": "linkDelayWithTurret",
+      "type": "string",
+      "description": "Link delay with turret",
+      "example": "linkDelayWithTurret: 1"
+    },
+    {
+      "name": "warmup",
+      "type": "float / s",
+      "description": "Warmup time (frames)",
+      "example": "warmup: 5s"
+    },
+    {
+      "name": "warmupCallDownRate",
+      "type": "float",
+      "description": "Warmup call down rate",
+      "example": "warmupCallDownRate: 10"
+    },
+    {
+      "name": "warmupNoReset",
+      "type": "bool",
+      "description": "Warmup no reset (true/false)",
+      "example": "warmupNoReset: true"
+    },
+    {
+      "name": "warmupShootDelayTransfer",
+      "type": "float",
+      "description": "Warmup shoot delay transfer",
+      "example": "warmupShootDelayTransfer: 20"
+    },
+    {
+      "name": "canShoot",
+      "type": "bool",
+      "description": "Can shoot (true/false)",
+      "example": "canShoot: true"
+    },
+    {
+      "name": "canOnlyAttackUnitsWithTags",
+      "type": "string",
+      "description": "Can only attack units with tags",
+      "example": "canOnlyAttackUnitsWithTags: shelled"
+    },
+    {
+      "name": "canOnlyAttackUnitsWithoutTags",
+      "type": "string",
+      "description": "Can only attack units without tags",
+      "example": "canOnlyAttackUnitsWithoutTags: fleshy"
+    },
+    {
+      "name": "canAttackCondition",
+      "type": "string",
+      "description": "Can attack condition",
+      "example": "canAttackCondition: if not self.flying"
+    },
+    {
+      "name": "canAttackMaxAngle",
+      "type": "float",
+      "description": "Can attack maximum angle",
+      "example": "canAttackMaxAngle: 181"
+    },
+    {
+      "name": "clearTurretTargetAfterFiring",
+      "type": "bool",
+      "description": "Clear turret target after firing (true/false)",
+      "example": "clearTurretTargetAfterFiring: false"
+    },
+    {
+      "name": "limitingRange",
+      "type": "float",
+      "description": "Limiting range",
+      "example": "limitingRange: 100"
+    },
+    {
+      "name": "limitingAngle",
+      "type": "int",
+      "description": "Limiting angle",
+      "example": "limitingAngle: 60"
+    },
+    {
+      "name": "limitingMinRange",
+      "type": "int",
+      "description": "Limiting minimum range",
+      "example": "limitingMinRange: 200"
+    },
+    {
+      "name": "interceptProjectiles_withTags",
+      "type": "string",
+      "description": "Intercept projectiles with tags",
+      "example": "interceptProjectiles_withTags: nuke"
+    },
+    {
+      "name": "interceptProjectiles_andOverHeight",
+      "type": "int",
+      "description": "Intercept projectiles and over height",
+      "example": "interceptProjectiles_andOverHeight: 10"
+    },
+    {
+      "name": "interceptProjectiles_andUnderDistance",
+      "type": "int",
+      "description": "Intercept projectiles and under distance",
+      "example": "interceptProjectiles_andUnderDistance: 300"
+    },
+    {
+      "name": "interceptProjectiles_andTargetingGroundUnderDistance",
+      "type": "int",
+      "description": "Intercept projectiles and targeting ground under distance",
+      "example": "interceptProjectiles_andTargetingGroundUnderDistance: 100"
+    },
+    {
+      "name": "laserDefenceEnergyUse",
+      "type": "float",
+      "description": "Laser defence energy use",
+      "example": "laserDefenceEnergyUse: 0.25"
+    },
+    {
+      "name": "invisible",
+      "type": "bool",
+      "description": "Invisible (true/false)",
+      "example": "invisible: false"
+    },
+    {
+      "name": "image",
+      "type": "string",
+      "description": "Image",
+      "example": "image: gun.png"
+    },
+    {
+      "name": "image_applyTeamColors",
+      "type": "bool",
+      "description": "Image apply team colors (true/false)",
+      "example": "image_applyTeamColors: true"
+    },
+    {
+      "name": "image_drawOffsetX",
+      "type": "float",
+      "description": "Image draw offset x",
+      "example": "image_drawOffsetX: 0"
+    },
+    {
+      "name": "image_drawOffsetY",
+      "type": "float",
+      "description": "Image draw offset y",
+      "example": "image_drawOffsetY: 30"
+    },
+    {
+      "name": "chargeEffectImage",
+      "type": "string",
+      "description": "Charge effect image",
+      "example": "chargeEffectImage: glow.png"
+    },
+    {
+      "name": "warmupStartEffect",
+      "type": "string",
+      "description": "Warmup start effect",
+      "example": "warmupStartEffect: CUSTOM:absorb"
+    },
+    {
+      "name": "shoot_sound",
+      "type": "string",
+      "description": "Shoot sound effect",
+      "example": "shoot_sound: tank_firing"
+    },
+    {
+      "name": "shoot_sound_vol",
+      "type": "float",
+      "description": "Shoot sound vol",
+      "example": "shoot_sound_vol: 0.4"
+    },
+    {
+      "name": "shoot_flame",
+      "type": "shootFlame",
+      "description": "Muzzle flash size",
+      "example": "shoot_flame: small"
+    },
+    {
+      "name": "shoot_light",
+      "type": "string",
+      "description": "Shoot light",
+      "example": "shoot_light: #fafafa"
+    },
+    {
+      "name": "onShoot_freezeBodyMovementFor",
+      "type": "float / s",
+      "description": "On shoot freeze body movement for",
+      "example": "onShoot_freezeBodyMovementFor: 2s"
+    },
+    {
+      "name": "onShoot_playAnimation",
+      "type": "string",
+      "description": "On shoot play animation",
+      "example": "onShoot_playAnimation: heatUp"
+    },
+    {
+      "name": "onShoot_triggerActions",
+      "type": "string",
+      "description": "On shoot trigger actions",
+      "example": "onShoot_triggerActions: spawnShells"
+    },
+    {
+      "name": "aimOffsetSpread",
+      "type": "float",
+      "description": "Aim offset spread",
+      "example": "aimOffsetSpread: 14"
+    },
+    {
+      "name": "barrelOffsetX_onOddShots",
+      "type": "float",
+      "description": "Barrel offset x on odd shots",
+      "example": "barrelOffsetX_onOddShots: -10"
+    },
+    {
+      "name": "recoilOffset",
+      "type": "float",
+      "description": "Recoil offset",
+      "example": "recoilOffset: 10"
+    },
+    {
+      "name": "recoilOutTime",
+      "type": "float / s",
+      "description": "Recoil out time (frames or seconds)",
+      "example": "recoilOutTime: 1s"
+    },
+    {
+      "name": "recoilReturnTime",
+      "type": "float / s",
+      "description": "Recoil return time (frames or seconds)",
+      "example": "recoilReturnTime: 0.5s"
+    },
+    {
+      "name": "showRangeUIGuide",
+      "type": "bool",
+      "description": "Show range u i guide (true/false)",
+      "example": "showRangeUIGuide: true"
+    },
+    {
+      "name": "unloadUpToXUnitsAndGiveAttackOrder",
+      "type": "int",
+      "description": "Unload up to x units and give attack order",
+      "example": "unloadUpToXUnitsAndGiveAttackOrder: 1"
+    }
+  ]
+}

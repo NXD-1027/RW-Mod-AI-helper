@@ -1,0 +1,13 @@
+{
+  "name": "explodeType",
+  "data": [
+    { "name": "verysmall", "description": "非常小" },
+    { "name": "small", "description": "小" },
+    { "name": "normal", "description": "普通" },
+    { "name": "large", "description": "大" },
+    { "name": "largeUnit", "description": "大型单位" },
+    { "name": "building", "description": "建筑" },
+    { "name": "buildingNoShockwaveOrSmoke", "description": "建筑无冲击波/烟" },
+    { "name": "verylargeBuilding", "description": "超大型建筑" }
+  ]
+}

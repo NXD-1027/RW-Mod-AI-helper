@@ -1,0 +1,8 @@
+{
+  "name": "imageShadow",
+  "data": [
+    { "name": "AUTO", "description": "自动生成阴影" },
+    { "name": "AUTO_ANIMATED", "description": "自动生成动画阴影" },
+    { "name": "NONE", "description": "无阴影" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "drawLayer",
+  "data": [
+    { "name": "wreaks", "description": "残骸层" },
+    { "name": "underwater", "description": "水下层" },
+    { "name": "bottom", "description": "底层" },
+    { "name": "ground", "description": "地面层" },
+    { "name": "ground2", "description": "地面层2" },
+    { "name": "experimentals", "description": "实验单位层" },
+    { "name": "air", "description": "空中层" },
+    { "name": "top", "description": "顶层" }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "animation",
+  "description": "动画定义",
+  "data": [
+    {
+      "name": "onActions",
+      "type": "onAction",
+      "description": "On actions",
+      "example": "onActions: move"
+    },
+    {
+      "name": "onActionsQueuedUnitPlayAt",
+      "type": "float",
+      "description": "On actions queued unit play at",
+      "example": "onActionsQueuedUnitPlayAt: 0.5"
+    },
+    {
+      "name": "blendIn",
+      "type": "float / s",
+      "description": "Blend in",
+      "example": "blendIn: 0.5s"
+    },
+    {
+      "name": "blendOut",
+      "type": "float / s",
+      "description": "Blend out",
+      "example": "blendOut: 0.5s"
+    },
+    {
+      "name": "pingPong",
+      "type": "bool",
+      "description": "Ping pong (true/false)",
+      "example": "pingPong: true"
+    },
+    {
+      "name": "KeyframeTimeScale",
+      "type": "float",
+      "description": "Keyframe time scale",
+      "example": "KeyframeTimeScale: 1"
+    },
+    {
+      "name": "direction_units",
+      "type": "float",
+      "description": "Direction units",
+      "example": "direction_units: 45"
+    },
+    {
+      "name": "direction_strideX",
+      "type": "int",
+      "description": "Direction stride x",
+      "example": "direction_strideX: 40"
+    },
+    {
+      "name": "direction_strideY",
+      "type": "int",
+      "description": "Direction stride y",
+      "example": "direction_strideY: 60"
+    },
+    {
+      "name": "direction_starting",
+      "type": "float",
+      "description": "Direction starting",
+      "example": "direction_starting: 0"
+    }
+  ]
+}

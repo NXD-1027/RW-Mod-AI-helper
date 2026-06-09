@@ -1,0 +1,204 @@
+{
+  "name": "core",
+  "description": "核心属性",
+  "data": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Unique unit identifier (used in code references)",
+      "example": "name: myTank"
+    },
+    {
+      "name": "displayText",
+      "type": "string",
+      "description": "Name visible to players",
+      "example": "displayText: 重型坦克"
+    },
+    {
+      "name": "displayDescription",
+      "type": "string",
+      "description": "Unit description (\\n for line break)",
+      "example": "displayDescription: 一辆重型坦克"
+    },
+    {
+      "name": "displayLocaleKey",
+      "type": "string",
+      "description": "Translation file key (1.15)",
+      "example": "displayLocaleKey: units.mechArtillery"
+    },
+    {
+      "name": "price",
+      "type": "int",
+      "description": "Cost (supports multi-resource: credits=500, gold=5)",
+      "example": "price: 500"
+    },
+    {
+      "name": "maxHp",
+      "type": "int",
+      "description": "Maximum health",
+      "example": "maxHp: 200"
+    },
+    {
+      "name": "mass",
+      "type": "int",
+      "description": "Mass/weight (affects collision and transport)",
+      "example": "mass: 3000"
+    },
+    {
+      "name": "radius",
+      "type": "int",
+      "description": "Collision radius",
+      "example": "radius: 20"
+    },
+    {
+      "name": "buildSpeed",
+      "type": "float / s",
+      "description": "Build time/speed (supports decimal speed or seconds like 3s)",
+      "example": "buildSpeed: 3s"
+    },
+    {
+      "name": "techLevel",
+      "type": "int",
+      "description": "Tech level 1/2/3",
+      "example": "techLevel: 1"
+    },
+    {
+      "name": "isBio",
+      "type": "bool",
+      "description": "Is a biological unit",
+      "example": "isBio: false"
+    },
+    {
+      "name": "isBuilder",
+      "type": "bool",
+      "description": "Is a builder unit",
+      "example": "isBuilder: true"
+    },
+    {
+      "name": "nanoFactorySpeed",
+      "type": "float",
+      "description": "Factory build speed multiplier (1.13)",
+      "example": "nanoFactorySpeed: 1.2"
+    },
+    {
+      "name": "isBuilding",
+      "type": "bool",
+      "description": "Is a building",
+      "example": "isBuilding: true"
+    },
+    {
+      "name": "isLocked",
+      "type": "bool",
+      "description": "Disable building",
+      "example": "isLocked: false"
+    },
+    {
+      "name": "isUnselectable",
+      "type": "bool",
+      "description": "Cannot be selected",
+      "example": "isUnselectable: false"
+    },
+    {
+      "name": "experimental",
+      "type": "bool",
+      "description": "Experimental (true/false)",
+      "example": "experimental: false"
+    },
+    {
+      "name": "fogOfWarSightRange",
+      "type": "int",
+      "description": "Sight range (pixels)",
+      "example": "fogOfWarSightRange: 10"
+    },
+    {
+      "name": "energyMax",
+      "type": "float",
+      "description": "Max energy (used as ammo for weapons)",
+      "example": "energyMax: 1"
+    },
+    {
+      "name": "energyRegen",
+      "type": "float",
+      "description": "Energy regen rate",
+      "example": "energyRegen: 0.001"
+    },
+    {
+      "name": "energyNeedsToRechargeToFull",
+      "type": "bool",
+      "description": "Energy needs to recharge to full (true/false)",
+      "example": "energyNeedsToRechargeToFull: true"
+    },
+    {
+      "name": "maxShield",
+      "type": "int",
+      "description": "Maximum shield HP",
+      "example": "maxShield: 500"
+    },
+    {
+      "name": "shieldRegen",
+      "type": "float",
+      "description": "Shield regen rate",
+      "example": "shieldRegen: 0.15"
+    },
+    {
+      "name": "shieldRenderRadius",
+      "type": "int",
+      "description": "Shield render radius",
+      "example": "shieldRenderRadius: 12"
+    },
+    {
+      "name": "armour",
+      "type": "int",
+      "description": "Armour",
+      "example": "armour: 5"
+    },
+    {
+      "name": "transportSlotsNeeded",
+      "type": "int",
+      "description": "Transport slots needed",
+      "example": "transportSlotsNeeded: 0"
+    },
+    {
+      "name": "maxTransportingUnits",
+      "type": "int",
+      "description": "Maximum transporting units",
+      "example": "maxTransportingUnits: 4"
+    },
+    {
+      "name": "transportUnitsRequireTag",
+      "type": "string",
+      "description": "Transport units require tag",
+      "example": "transportUnitsRequireTag: smallTank, soldier"
+    },
+    {
+      "name": "transportUnitsRequireMovementType",
+      "type": "string",
+      "description": "Transport units require movement type",
+      "example": "transportUnitsRequireMovementType: AIR, WATER"
+    },
+    {
+      "name": "transportUnitsKeepBuiltUnits",
+      "type": "bool",
+      "description": "Transport units keep built units (true/false)",
+      "example": "transportUnitsKeepBuiltUnits: true"
+    },
+    {
+      "name": "transportUnitsCanUnloadUnits",
+      "type": "string",
+      "description": "Transport units can unload units",
+      "example": "transportUnitsCanUnloadUnits: false"
+    },
+    {
+      "name": "showOnMinimap",
+      "type": "bool",
+      "description": "Show on minimap (true/false)",
+      "example": "showOnMinimap: true"
+    },
+    {
+      "name": "tags",
+      "type": "string",
+      "description": "Tags",
+      "example": "tags: tank, heavy"
+    }
+  ]
+}

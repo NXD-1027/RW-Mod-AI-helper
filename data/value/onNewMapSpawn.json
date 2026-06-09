@@ -1,0 +1,10 @@
+{
+  "name": "onNewMapSpawn",
+  "data": [
+    { "name": "emptyResourcePools_asNeutral", "description": "空资源点-中立" },
+    { "name": "emptyOrOccupiedResourcePools_asNeutral", "description": "空或占用资源点-中立" },
+    { "name": "mapCenter_asNeutral", "description": "地图中心-中立" },
+    { "name": "mapCenter_eachActiveTeam", "description": "地图中心-每个活跃队伍" },
+    { "name": "spawnPoint_eachActiveTeam", "description": "出生点-每个活跃队伍" }
+  ]
+}

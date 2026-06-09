@@ -1,0 +1,28 @@
+{
+  "name": "leg",
+  "description": "腿（可移动装饰）",
+  "data": [
+    { "name": "x", "type": "float", "description": "水平位置", "example": "x: 0" },
+    { "name": "y", "type": "float", "description": "垂直位置", "example": "y: 0" },
+    { "name": "copyFrom", "type": "int", "description": "从其他腿复制", "example": "copyFrom: 1" },
+    { "name": "attach_x", "type": "float", "description": "附着点X", "example": "attach_x: 0" },
+    { "name": "attach_y", "type": "float", "description": "附着点Y", "example": "attach_y: 0" },
+    { "name": "rotateSpeed", "type": "float", "description": "移动时旋转速度", "example": "rotateSpeed: 2" },
+    { "name": "endDirOffset", "type": "int", "description": "脚/末端偏移角度", "example": "endDirOffset: 0" },
+    { "name": "lockMovement", "type": "bool", "description": "锁定到身体", "example": "lockMovement: true" },
+    { "name": "heightSpeed", "type": "float", "description": "抬脚速度", "example": "heightSpeed: 1" },
+    { "name": "moveSpeed", "type": "float", "description": "移动速度", "example": "moveSpeed: 1" },
+    { "name": "holdDisMin", "type": "float", "description": "最小保持距离（默认7）", "example": "holdDisMin: 7" },
+    { "name": "holdDisMax", "type": "float", "description": "最大保持距离（默认16）", "example": "holdDisMax: 16" },
+    { "name": "hardLimit", "type": "float", "description": "硬限制（默认50）", "example": "hardLimit: 50" },
+    { "name": "hidden", "type": "bool", "description": "隐藏", "example": "hidden: false" },
+    { "name": "image_leg", "type": "string", "description": "腿贴图", "example": "image_leg: leg.png" },
+    { "name": "image_foot", "type": "string", "description": "脚贴图", "example": "image_foot: foot.png" },
+    { "name": "dust_effect", "type": "bool", "description": "脚步灰尘", "example": "dust_effect: true" },
+    { "name": "spinRate", "type": "float", "description": "旋转速度", "example": "spinRate: 3" },
+    { "name": "drawOverBody", "type": "bool", "description": "在身体上方绘制", "example": "drawOverBody: false" },
+    { "name": "drawUnderAllUnits", "type": "bool", "description": "在所有单位下方", "example": "drawUnderAllUnits: false" },
+    { "name": "drawDirOffset", "type": "float", "description": "精灵方向偏移", "example": "drawDirOffset: 0" },
+    { "name": "targetHeight", "type": "int", "description": "腿目标高度(1.15p9)", "example": "targetHeight: 0" }
+  ]
+}

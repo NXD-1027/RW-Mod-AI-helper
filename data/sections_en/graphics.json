@@ -1,0 +1,324 @@
+{
+  "name": "graphics",
+  "description": "外观属性",
+  "data": [
+    {
+      "name": "image",
+      "type": "string",
+      "description": "Unit sprite path",
+      "example": "image: body.png"
+    },
+    {
+      "name": "image_back",
+      "type": "string",
+      "description": "Rear sprite (for layered rendering)",
+      "example": "image_back: floor.png"
+    },
+    {
+      "name": "image_shield",
+      "type": "string",
+      "description": "Shield sprite",
+      "example": "image_shield: forcefield.png"
+    },
+    {
+      "name": "image_wreak",
+      "type": "string",
+      "description": "Wreck sprite path",
+      "example": "image_wreak: ded.png"
+    },
+    {
+      "name": "image_turret",
+      "type": "string",
+      "description": "Turret sprite path",
+      "example": "image_turret: gun.png"
+    },
+    {
+      "name": "image_offsetX",
+      "type": "int",
+      "description": "Image offset x",
+      "example": "image_offsetX: 0"
+    },
+    {
+      "name": "image_offsetY",
+      "type": "int",
+      "description": "Image offset y",
+      "example": "image_offsetY: 0"
+    },
+    {
+      "name": "image_offsetH",
+      "type": "int",
+      "description": "Image offset h",
+      "example": "image_offsetH: 0"
+    },
+    {
+      "name": "image_shadow",
+      "type": "imageShadow",
+      "description": "Shadow sprite (AUTO for auto)",
+      "example": "image_shadow: AUTO"
+    },
+    {
+      "name": "image_shadow_frames",
+      "type": "bool",
+      "description": "Image shadow frames (true/false)",
+      "example": "image_shadow_frames: false"
+    },
+    {
+      "name": "shadowOffsetX",
+      "type": "float",
+      "description": "Shadow offset X",
+      "example": "shadowOffsetX: 0"
+    },
+    {
+      "name": "shadowOffsetY",
+      "type": "float",
+      "description": "Shadow offset Y",
+      "example": "shadowOffsetY: 0"
+    },
+    {
+      "name": "teamColoringMode",
+      "type": "teamColoringMode",
+      "description": "Team color mode",
+      "example": "teamColoringMode: hueAdd"
+    },
+    {
+      "name": "teamColorsOnTurret",
+      "type": "bool",
+      "description": "Team colors on turret (true/false)",
+      "example": "teamColorsOnTurret: true"
+    },
+    {
+      "name": "scaleImagesTo",
+      "type": "float",
+      "description": "Scale images to",
+      "example": "scaleImagesTo: 1"
+    },
+    {
+      "name": "imageScale",
+      "type": "float",
+      "description": "Image scale",
+      "example": "imageScale: 1"
+    },
+    {
+      "name": "scaleTurretImagesTo",
+      "type": "float",
+      "description": "Scale turret images to",
+      "example": "scaleTurretImagesTo: 1"
+    },
+    {
+      "name": "drawLayer",
+      "type": "drawLayer",
+      "description": "Draw layer (z-order)",
+      "example": "drawLayer: bottom"
+    },
+    {
+      "name": "total_frames",
+      "type": "int",
+      "description": "Total spritesheet frames",
+      "example": "total_frames: 1"
+    },
+    {
+      "name": "frame_width",
+      "type": "int",
+      "description": "Frame width",
+      "example": "frame_width: 64"
+    },
+    {
+      "name": "frame_height",
+      "type": "int",
+      "description": "Frame height",
+      "example": "frame_height: 64"
+    },
+    {
+      "name": "default_frame",
+      "type": "int",
+      "description": "Default frame",
+      "example": "default_frame: 0"
+    },
+    {
+      "name": "rotate_with_direction",
+      "type": "bool",
+      "description": "Rotate with direction (true/false)",
+      "example": "rotate_with_direction: false"
+    },
+    {
+      "name": "lock_body_rotation_with_main_turret",
+      "type": "bool",
+      "description": "Lock body rotation with main turret (true/false)",
+      "example": "lock_body_rotation_with_main_turret: true"
+    },
+    {
+      "name": "lock_leg_rotation_with_main_turret",
+      "type": "bool",
+      "description": "Lock leg rotation with main turret (true/false)",
+      "example": "lock_leg_rotation_with_main_turret: true"
+    },
+    {
+      "name": "lock_shadow_rotation_with_main_turret",
+      "type": "bool",
+      "description": "Lock shadow rotation with main turret (true/false)",
+      "example": "lock_shadow_rotation_with_main_turret: true"
+    },
+    {
+      "name": "dustEffect",
+      "type": "bool",
+      "description": "Movement dust effect",
+      "example": "dustEffect: true"
+    },
+    {
+      "name": "splastEffect",
+      "type": "bool",
+      "description": "Water splash effect",
+      "example": "splastEffect: true"
+    },
+    {
+      "name": "dustEffectReverse",
+      "type": "bool",
+      "description": "Dust effect reverse (true/false)",
+      "example": "dustEffectReverse: true"
+    },
+    {
+      "name": "splastEffectReverse",
+      "type": "bool",
+      "description": "Splast effect reverse (true/false)",
+      "example": "splastEffectReverse: true"
+    },
+    {
+      "name": "icon_zoomed_out",
+      "type": "string",
+      "description": "Zoomed-out minimap icon",
+      "example": "icon_zoomed_out: icon.png"
+    },
+    {
+      "name": "icon_zoomed_out_neverShow",
+      "type": "bool",
+      "description": "Icon zoomed out never show (true/false)",
+      "example": "icon_zoomed_out_neverShow: false"
+    },
+    {
+      "name": "icon_build",
+      "type": "string",
+      "description": "Build queue icon",
+      "example": "icon_build: icon.png"
+    },
+    {
+      "name": "disableLowHpFire",
+      "type": "bool",
+      "description": "Disabled low hitpoints fire (true/false)",
+      "example": "disableLowHpFire: false"
+    },
+    {
+      "name": "disableLowHpSmoke",
+      "type": "bool",
+      "description": "Disabled low hitpoints smoke (true/false)",
+      "example": "disableLowHpSmoke: false"
+    },
+    {
+      "name": "showTransportBar",
+      "type": "bool",
+      "description": "Show transport bar (true/false)",
+      "example": "showTransportBar: false"
+    },
+    {
+      "name": "showHealthBar",
+      "type": "bool",
+      "description": "Show health bar",
+      "example": "showHealthBar: true"
+    },
+    {
+      "name": "showEnergyBar",
+      "type": "bool",
+      "description": "Show energy bar (true/false)",
+      "example": "showEnergyBar: false"
+    },
+    {
+      "name": "showShieldBar",
+      "type": "bool",
+      "description": "Show shield bar (true/false)",
+      "example": "showShieldBar: false"
+    },
+    {
+      "name": "showQueueBar",
+      "type": "bool",
+      "description": "Show queue bar (true/false)",
+      "example": "showQueueBar: false"
+    },
+    {
+      "name": "showShotDelayBar",
+      "type": "bool",
+      "description": "Show shot delay bar (true/false)",
+      "example": "showShotDelayBar: false"
+    },
+    {
+      "name": "showSelectionIndicator",
+      "type": "bool",
+      "description": "Show selection indicator (true/false)",
+      "example": "showSelectionIndicator: false"
+    },
+    {
+      "name": "whenBeingBuiltMakeTransparentTill",
+      "type": "float",
+      "description": "When being built make transparent till",
+      "example": "whenBeingBuiltMakeTransparentTill: 0.4"
+    },
+    {
+      "name": "isVisible",
+      "type": "bool",
+      "description": "Is visible (true/false)",
+      "example": "isVisible: true"
+    },
+    {
+      "name": "isVisibleToEnemies",
+      "type": "bool",
+      "description": "Is visible to enemies (true/false)",
+      "example": "isVisibleToEnemies: false"
+    },
+    {
+      "name": "movementEffect",
+      "type": "string",
+      "description": "Custom movement effect",
+      "example": "movementEffect: smoke"
+    },
+    {
+      "name": "movementEffectReverse",
+      "type": "string",
+      "description": "Movement effect reverse",
+      "example": "movementEffectReverse: smoke"
+    },
+    {
+      "name": "movementEffectRate",
+      "type": "float",
+      "description": "Movement effect rate",
+      "example": "movementEffectRate: 10"
+    },
+    {
+      "name": "repairEffect",
+      "type": "string",
+      "description": "Repair effect",
+      "example": "repairEffect: CUSTOM:mist*5"
+    },
+    {
+      "name": "repairEffectAtTarget",
+      "type": "string",
+      "description": "Repair effect at target",
+      "example": "repairEffectAtTarget: CUSTOM:greensparks*2"
+    },
+    {
+      "name": "repairEffectRate",
+      "type": "int",
+      "description": "Repair effect rate",
+      "example": "repairEffectRate: 20"
+    },
+    {
+      "name": "reclaimEffect",
+      "type": "string",
+      "description": "Reclaim effect",
+      "example": "reclaimEffect: CUSTOM:sap*5"
+    },
+    {
+      "name": "reclaimEffectAtTarget",
+      "type": "string",
+      "description": "Reclaim effect at target",
+      "example": "reclaimEffectAtTarget: CUSTOM:redsparks*2"
+    }
+  ]
+}

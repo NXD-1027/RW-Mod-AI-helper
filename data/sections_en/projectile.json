@@ -1,0 +1,564 @@
+{
+  "name": "projectile",
+  "description": "弹道",
+  "data": [
+    {
+      "name": "life",
+      "type": "int",
+      "description": "Projectile lifetime (frames)",
+      "example": "life: 300"
+    },
+    {
+      "name": "speed",
+      "type": "float",
+      "description": "Projectile speed",
+      "example": "speed: 3"
+    },
+    {
+      "name": "targetSpeed",
+      "type": "float",
+      "description": "Target speed",
+      "example": "targetSpeed: 5"
+    },
+    {
+      "name": "targetSpeedAcceleration",
+      "type": "float",
+      "description": "Target speed acceleration",
+      "example": "targetSpeedAcceleration: 0.3"
+    },
+    {
+      "name": "directDamage",
+      "type": "int",
+      "description": "Direct damage",
+      "example": "directDamage: 30"
+    },
+    {
+      "name": "areaDamage",
+      "type": "int",
+      "description": "Area damage (AoE)",
+      "example": "areaDamage: 10"
+    },
+    {
+      "name": "areaRadius",
+      "type": "float",
+      "description": "Area radius",
+      "example": "areaRadius: 100"
+    },
+    {
+      "name": "areaDamageNoFalloff",
+      "type": "bool",
+      "description": "Area damage no falloff (true/false)",
+      "example": "areaDamageNoFalloff: false"
+    },
+    {
+      "name": "areaRadiusFromEdge",
+      "type": "bool",
+      "description": "Area radius from edge (true/false)",
+      "example": "areaRadiusFromEdge: false"
+    },
+    {
+      "name": "areaExpandTime",
+      "type": "float / s",
+      "description": "Area expand time",
+      "example": "areaExpandTime: 1s"
+    },
+    {
+      "name": "buildingDamageMultiplier",
+      "type": "float",
+      "description": "Building damage multiplier",
+      "example": "buildingDamageMultiplier: 3"
+    },
+    {
+      "name": "shieldDamageMultiplier",
+      "type": "float",
+      "description": "Shield damage multiplier",
+      "example": "shieldDamageMultiplier: 1.4"
+    },
+    {
+      "name": "shieldDefectionMultiplier",
+      "type": "float",
+      "description": "Shield defection multiplier",
+      "example": "shieldDefectionMultiplier: 1.55"
+    },
+    {
+      "name": "hullDamageMultiplier",
+      "type": "float",
+      "description": "Hull damage multiplier",
+      "example": "hullDamageMultiplier: 2"
+    },
+    {
+      "name": "armourIgnoreAmount",
+      "type": "int",
+      "description": "Armour ignore amount",
+      "example": "armourIgnoreAmount: 5"
+    },
+    {
+      "name": "ignoreParentShootDamageMultiplier",
+      "type": "bool",
+      "description": "Ignore parent shoot damage multiplier (true/false)",
+      "example": "ignoreParentShootDamageMultiplier: true"
+    },
+    {
+      "name": "friendlyFire",
+      "type": "bool",
+      "description": "Friendly fire (true/false)",
+      "example": "friendlyFire: false"
+    },
+    {
+      "name": "deflectionPower",
+      "type": "float",
+      "description": "Deflection power",
+      "example": "deflectionPower: -1"
+    },
+    {
+      "name": "explodeOnEndOfLife",
+      "type": "bool",
+      "description": "Explode on end of life (true/false)",
+      "example": "explodeOnEndOfLife: true"
+    },
+    {
+      "name": "targetGround",
+      "type": "bool",
+      "description": "Target ground (true/false)",
+      "example": "targetGround: false"
+    },
+    {
+      "name": "targetGround_includeTargetHeight",
+      "type": "bool",
+      "description": "Target ground include target height (true/false)",
+      "example": "targetGround_includeTargetHeight: false"
+    },
+    {
+      "name": "targetGroundHeightOffset",
+      "type": "float",
+      "description": "Target ground height offset",
+      "example": "targetGroundHeightOffset: 10"
+    },
+    {
+      "name": "targetGroundSpread",
+      "type": "float",
+      "description": "Target ground spread",
+      "example": "targetGroundSpread: 20"
+    },
+    {
+      "name": "ballistic",
+      "type": "bool",
+      "description": "Ballistic (true/false)",
+      "example": "ballistic: false"
+    },
+    {
+      "name": "ballistic_height",
+      "type": "float",
+      "description": "Ballistic height",
+      "example": "ballistic_height: 10"
+    },
+    {
+      "name": "ballistic_delaymove_height",
+      "type": "float",
+      "description": "Ballistic delaymove height",
+      "example": "ballistic_delaymove_height: 20"
+    },
+    {
+      "name": "instant",
+      "type": "bool",
+      "description": "Instant hit (laser type)",
+      "example": "instant: false"
+    },
+    {
+      "name": "instantReuseLast",
+      "type": "bool",
+      "description": "Instant reuse last (true/false)",
+      "example": "instantReuseLast: false"
+    },
+    {
+      "name": "instantReuseLast_alsoChangeTurretAim",
+      "type": "bool",
+      "description": "Instant reuse last also change turret aim (true/false)",
+      "example": "instantReuseLast_alsoChangeTurretAim: true"
+    },
+    {
+      "name": "instantReuseLast_keepAreaDamageList",
+      "type": "bool",
+      "description": "Instant reuse last keep area damage list (true/false)",
+      "example": "instantReuseLast_keepAreaDamageList: true"
+    },
+    {
+      "name": "turnSpeed",
+      "type": "float",
+      "description": "Turn speed",
+      "example": "turnSpeed: 0"
+    },
+    {
+      "name": "disableLeadTargeting",
+      "type": "bool",
+      "description": "Disabled lead targeting (true/false)",
+      "example": "disableLeadTargeting: false"
+    },
+    {
+      "name": "gravity",
+      "type": "float",
+      "description": "Gravity",
+      "example": "gravity: 29"
+    },
+    {
+      "name": "initialUnguidedSpeedHeight",
+      "type": "float",
+      "description": "Initial unguided speed height",
+      "example": "initialUnguidedSpeedHeight: 30"
+    },
+    {
+      "name": "wobbleAmplitude",
+      "type": "float",
+      "description": "Wobble amplitude",
+      "example": "wobbleAmplitude: 10"
+    },
+    {
+      "name": "wobbleFrequency",
+      "type": "float",
+      "description": "Wobble frequency",
+      "example": "wobbleFrequency: 4"
+    },
+    {
+      "name": "pushForce",
+      "type": "float",
+      "description": "Push force",
+      "example": "pushForce: 2"
+    },
+    {
+      "name": "pushVelocity",
+      "type": "float",
+      "description": "Push velocity",
+      "example": "pushVelocity: 5"
+    },
+    {
+      "name": "moveWithParent",
+      "type": "bool",
+      "description": "Move with parent (true/false)",
+      "example": "moveWithParent: false"
+    },
+    {
+      "name": "sweepOffset",
+      "type": "float",
+      "description": "Sweep offset",
+      "example": "sweepOffset: 0.5"
+    },
+    {
+      "name": "sweepOffsetFromTargetRadius",
+      "type": "float",
+      "description": "Sweep offset from target radius",
+      "example": "sweepOffsetFromTargetRadius: 0.4"
+    },
+    {
+      "name": "sweepSpeed",
+      "type": "float",
+      "description": "Sweep speed",
+      "example": "sweepSpeed: 1.5"
+    },
+    {
+      "name": "retargetingInFlight",
+      "type": "bool",
+      "description": "Retargeting in flight (true/false)",
+      "example": "retargetingInFlight: false"
+    },
+    {
+      "name": "retargetingInFlightSearchDelay",
+      "type": "float / s",
+      "description": "Retargeting in flight search delay",
+      "example": "retargetingInFlightSearchDelay: 1s"
+    },
+    {
+      "name": "retargetingInFlightSearchRange",
+      "type": "int",
+      "description": "Retargeting in flight search range",
+      "example": "retargetingInFlightSearchRange: 300"
+    },
+    {
+      "name": "retargetingInFlightSearchLead",
+      "type": "float",
+      "description": "Retargeting in flight search lead",
+      "example": "retargetingInFlightSearchLead: 30"
+    },
+    {
+      "name": "retargetingInFlightSearchOnlyTags",
+      "type": "string",
+      "description": "Retargeting in flight search only tags",
+      "example": "retargetingInFlightSearchOnlyTags: lightArmor"
+    },
+    {
+      "name": "spawnUnit",
+      "type": "string",
+      "description": "Spawn unit",
+      "example": "spawnUnit: heavyTank"
+    },
+    {
+      "name": "spawnProjectilesOnExplode",
+      "type": "string",
+      "description": "Spawn projectiles on explode",
+      "example": "spawnProjectilesOnExplode: flachette*4"
+    },
+    {
+      "name": "spawnProjectilesOnEndOfLife",
+      "type": "string",
+      "description": "Spawn projectiles on end of life",
+      "example": "spawnProjectilesOnEndOfLife: torpedo_split"
+    },
+    {
+      "name": "spawnProjectilesOnCreate",
+      "type": "string",
+      "description": "Spawn projectiles on create",
+      "example": "spawnProjectilesOnCreate: shotgun"
+    },
+    {
+      "name": "convertHitToSourceTeam",
+      "type": "bool",
+      "description": "Convert hit to source team (true/false)",
+      "example": "convertHitToSourceTeam: false"
+    },
+    {
+      "name": "autoTargetingOnDeadTarget",
+      "type": "bool",
+      "description": "Auto targeting on dead target (true/false)",
+      "example": "autoTargetingOnDeadTarget: true"
+    },
+    {
+      "name": "flameWeapon",
+      "type": "bool",
+      "description": "Flame weapon (true/false)",
+      "example": "flameWeapon: false"
+    },
+    {
+      "name": "tags",
+      "type": "string",
+      "description": "Tags",
+      "example": "tags: nuke, missile"
+    },
+    {
+      "name": "nukeWeapon",
+      "type": "bool",
+      "description": "Nuke weapon (true/false)",
+      "example": "nukeWeapon: false"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "description": "Color",
+      "example": "color: #bebe50"
+    },
+    {
+      "name": "image",
+      "type": "string",
+      "description": "Image",
+      "example": "image: bullet"
+    },
+    {
+      "name": "drawType",
+      "type": "string",
+      "description": "Draw type",
+      "example": "drawType: 1"
+    },
+    {
+      "name": "drawSize",
+      "type": "float",
+      "description": "Draw size",
+      "example": "drawSize: 1.5"
+    },
+    {
+      "name": "frame",
+      "type": "int",
+      "description": "Frame",
+      "example": "frame: 0"
+    },
+    {
+      "name": "invisible",
+      "type": "bool",
+      "description": "Invisible (true/false)",
+      "example": "invisible: false"
+    },
+    {
+      "name": "teamColorRatio",
+      "type": "float",
+      "description": "Team color ratio",
+      "example": "teamColorRatio: 1"
+    },
+    {
+      "name": "teamColorRatio_sourceRatio",
+      "type": "float",
+      "description": "Team color ratio source ratio",
+      "example": "teamColorRatio_sourceRatio: 1"
+    },
+    {
+      "name": "drawUnderUnits",
+      "type": "bool",
+      "description": "Draw under units (true/false)",
+      "example": "drawUnderUnits: false"
+    },
+    {
+      "name": "effectOnCreate",
+      "type": "string",
+      "description": "Effect on create",
+      "example": "effectOnCreate: CUSTOM:puff"
+    },
+    {
+      "name": "explodeEffect",
+      "type": "string",
+      "description": "Explode effect",
+      "example": "explodeEffect: smallExplosion"
+    },
+    {
+      "name": "explodeEffectOnShield",
+      "type": "string",
+      "description": "Explode effect on shield",
+      "example": "explodeEffectOnShield: CUSTOM:EMPwave"
+    },
+    {
+      "name": "trailEffect",
+      "type": "bool",
+      "description": "Projectile trail effect",
+      "example": "trailEffect: true"
+    },
+    {
+      "name": "trailEffectRate",
+      "type": "float",
+      "description": "Trail effect rate",
+      "example": "trailEffectRate: 4"
+    },
+    {
+      "name": "hitSound",
+      "type": "bool",
+      "description": "Hit sound (true/false)",
+      "example": "hitSound: false"
+    },
+    {
+      "name": "lightCastOnGround",
+      "type": "bool",
+      "description": "Light cast on ground (true/false)",
+      "example": "lightCastOnGround: false"
+    },
+    {
+      "name": "lightSize",
+      "type": "float",
+      "description": "Light size",
+      "example": "lightSize: 1.5"
+    },
+    {
+      "name": "lightColor",
+      "type": "string",
+      "description": "Light color",
+      "example": "lightColor: #ffe92b"
+    },
+    {
+      "name": "largeHitEffect",
+      "type": "bool",
+      "description": "Large hit effect (true/false)",
+      "example": "largeHitEffect: false"
+    },
+    {
+      "name": "lightingEffect",
+      "type": "bool",
+      "description": "Lighting effect (true/false)",
+      "example": "lightingEffect: false"
+    },
+    {
+      "name": "laserEffect",
+      "type": "bool",
+      "description": "Laser visual effect",
+      "example": "laserEffect: false"
+    },
+    {
+      "name": "beamImage",
+      "type": "string",
+      "description": "Beam image",
+      "example": "beamImage: beam.png"
+    },
+    {
+      "name": "beamImageOffsetRate",
+      "type": "float",
+      "description": "Beam image offset rate",
+      "example": "beamImageOffsetRate: 1"
+    },
+    {
+      "name": "beamImageStart",
+      "type": "string",
+      "description": "Beam image start",
+      "example": "beamImageStart: beamStart.png"
+    },
+    {
+      "name": "beamImageStartRotated",
+      "type": "bool",
+      "description": "Beam image start rotated (true/false)",
+      "example": "beamImageStartRotated: true"
+    },
+    {
+      "name": "beamImageEnd",
+      "type": "string",
+      "description": "Beam image end",
+      "example": "beamImageEnd: beamEnd.png"
+    },
+    {
+      "name": "beamImageEndRotated",
+      "type": "bool",
+      "description": "Beam image end rotated (true/false)",
+      "example": "beamImageEndRotated: true"
+    },
+    {
+      "name": "shouldRevealFog",
+      "type": "bool",
+      "description": "Should reveal fog (true/false)",
+      "example": "shouldRevealFog: false"
+    },
+    {
+      "name": "alwaysVisibleInFog",
+      "type": "bool",
+      "description": "Always visible in fog (true/false)",
+      "example": "alwaysVisibleInFog: false"
+    },
+    {
+      "name": "speedSpread",
+      "type": "float",
+      "description": "Speed spread",
+      "example": "speedSpread: 3"
+    },
+    {
+      "name": "delayedStartTimer",
+      "type": "float / s",
+      "description": "Delayed start timer",
+      "example": "delayedStartTimer: 2s"
+    },
+    {
+      "name": "interceptProjectile_removeTargetLifeOnly",
+      "type": "bool",
+      "description": "Intercept projectile remove target life only (true/false)",
+      "example": "interceptProjectile_removeTargetLifeOnly: true"
+    },
+    {
+      "name": "mutatorX_ifUnitWithTags",
+      "type": "string",
+      "description": "Mutator x if unit with tags",
+      "example": "mutator1_ifUnitWithTags: infantry"
+    },
+    {
+      "name": "mutatorX_ifUnitWithoutTags",
+      "type": "string",
+      "description": "Mutator x if unit without tags",
+      "example": "mutator1_ifUnitWithoutTags: strongArmour"
+    },
+    {
+      "name": "mutatorX_directDamageMultiplier",
+      "type": "float",
+      "description": "Mutator x direct damage multiplier",
+      "example": "mutator1_directDamageMultiplier: 5"
+    },
+    {
+      "name": "mutatorX_areaDamageMultiplier",
+      "type": "float",
+      "description": "Mutator x area damage multiplier",
+      "example": "mutator1_areaDamageMultiplier: 1.2"
+    },
+    {
+      "name": "mutatorX_changedExplodeEffect",
+      "type": "string",
+      "description": "Mutator x changed explode effect",
+      "example": "mutator1_changedExplodeEffect: CUSTOM:specialBlast"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "name": "placementRule",
+  "description": "放置规则",
+  "data": [
+    {
+      "name": "anyRuleInGroup",
+      "type": "bool",
+      "description": "Any rule in group (true/false)",
+      "example": "anyRuleInGroup: true"
+    },
+    {
+      "name": "searchTags",
+      "type": "string",
+      "description": "Search tags",
+      "example": "searchTags: factory"
+    },
+    {
+      "name": "searchTeam",
+      "type": "teamRelation",
+      "description": "Search team",
+      "example": "searchTeam: ally"
+    },
+    {
+      "name": "searchOffsetX",
+      "type": "float",
+      "description": "Search offset x",
+      "example": "searchOffsetX: 0"
+    },
+    {
+      "name": "searchOffsetY",
+      "type": "float",
+      "description": "Search offset y",
+      "example": "searchOffsetY: 0"
+    },
+    {
+      "name": "searchDistance",
+      "type": "float",
+      "description": "Search distance",
+      "example": "searchDistance: 100"
+    },
+    {
+      "name": "excludeIncompleteBuildings",
+      "type": "bool",
+      "description": "Exclude incomplete buildings (true/false)",
+      "example": "excludeIncompleteBuildings: false"
+    },
+    {
+      "name": "excludeNonBuildings",
+      "type": "bool",
+      "description": "Exclude non buildings (true/false)",
+      "example": "excludeNonBuildings: false"
+    },
+    {
+      "name": "minCount",
+      "type": "int",
+      "description": "Minimum count",
+      "example": "minCount: 1"
+    },
+    {
+      "name": "maxCount",
+      "type": "int",
+      "description": "Maximum count",
+      "example": "maxCount: 5"
+    },
+    {
+      "name": "blocksPlacement",
+      "type": "bool",
+      "description": "Blocks placement (true/false)",
+      "example": "blocksPlacement: true"
+    },
+    {
+      "name": "cannotPlaceMessage",
+      "type": "string",
+      "description": "Cannot place message",
+      "example": "cannotPlaceMessage: 需要工厂附近"
+    },
+    {
+      "name": "checkEachTile",
+      "type": "bool",
+      "description": "Check each tile (true/false)",
+      "example": "checkEachTile: true"
+    }
+  ]
+}

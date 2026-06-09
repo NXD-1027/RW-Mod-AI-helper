@@ -1,0 +1,13 @@
+{
+  "name": "drawType",
+  "data": [
+    {
+      "name": "normal",
+      "description": "normal"
+    },
+    {
+      "name": "displacement",
+      "description": "displacement"
+    }
+  ]
+}

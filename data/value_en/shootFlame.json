@@ -1,0 +1,29 @@
+{
+  "name": "shootFlame",
+  "data": [
+    {
+      "name": "small",
+      "description": "small"
+    },
+    {
+      "name": "medium",
+      "description": "medium"
+    },
+    {
+      "name": "large",
+      "description": "large"
+    },
+    {
+      "name": "smoke",
+      "description": "smoke"
+    },
+    {
+      "name": "shockwave",
+      "description": "shockwave"
+    },
+    {
+      "name": "CUSTOM:",
+      "description": "CUSTOM:"
+    }
+  ]
+}
