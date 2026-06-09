@@ -1,0 +1,246 @@
+{
+  "name": "rw-mod-ai-helper",
+  "displayName": "铁锈模组智能小帮手",
+  "description": "铁锈战争MOD开发辅助工具 - AI驱动，智能补全，一键打包",
+  "version": "0.2.0",
+  "publisher": "rw-modder",
+  "icon": "assets/icon.png",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NXD-1027/RW-Mod-AI-helper.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "rusted warfare",
+    "铁锈战争",
+    "mod",
+    "rts"
+  ],
+  "activationEvents": [
+    "onLanguage:json",
+    "onLanguage:rusted-warfare",
+    "onView:rwModPanel",
+    "onCommand:rwMod.hello",
+    "onCommand:rwMod.askAI",
+    "onCommand:rwMod.generateUnit",
+    "onCommand:rwMod.explainUnit",
+    "onCommand:rwMod.explainSelection",
+    "onCommand:rwMod.setApiKey",
+    "onCommand:rwMod.deleteApiKey",
+    "onCommand:rwMod.sendMessage",
+    "onCommand:rwMod.clearChat",
+    "onCommand:rwMod.selectKnowledgeDir",
+    "onCommand:rwMod.openPanel",
+    "onCommand:rwMod.formatIni",
+    "onCommand:rwMod.addCustomExtension",
+    "onCommand:rwMod.removeCustomExtension",
+    "onCommand:rwMod.listCustomExtensions",
+    "onCommand:rwMod.aiModifyFile"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "rwModSidebar",
+          "title": "MOD助手",
+          "icon": "assets/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "rwModSidebar": [
+        {
+          "type": "webview",
+          "id": "rwModPanel",
+          "name": "AI 对话"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "rwMod.hello",
+        "title": "MOD助手: 你好"
+      },
+      {
+        "command": "rwMod.askAI",
+        "title": "MOD助手: 向AI提问"
+      },
+      {
+        "command": "rwMod.generateUnit",
+        "title": "用AI生成单位"
+      },
+      {
+        "command": "rwMod.explainUnit",
+        "title": "用AI解析当前单位"
+      },
+      {
+        "command": "rwMod.explainSelection",
+        "title": "用AI解释选中配置"
+      },
+      {
+        "command": "rwMod.setApiKey",
+        "title": "MOD助手: 设置 API Key"
+      },
+      {
+        "command": "rwMod.deleteApiKey",
+        "title": "MOD助手: 删除当前 API Key"
+      },
+      {
+        "command": "rwMod.sendMessage",
+        "title": "MOD助手: 向 AI 发送消息"
+      },
+      {
+        "command": "rwMod.clearChat",
+        "title": "MOD助手: 清空对话"
+      },
+      {
+        "command": "rwMod.selectKnowledgeDir",
+        "title": "MOD助手: 选择知识库文件夹"
+      },
+      {
+        "command": "rwMod.openPanel",
+        "title": "打开MOD助手面板"
+      },
+      {
+        "command": "rwMod.formatIni",
+        "title": "ini 文件格式对齐"
+      },
+      {
+        "command": "rwMod.addCustomExtension",
+        "title": "添加自定义后缀到 MOD 助手"
+      },
+      {
+        "command": "rwMod.removeCustomExtension",
+        "title": "移除 MOD 助手自定义后缀"
+      },
+      {
+        "command": "rwMod.listCustomExtensions",
+        "title": "查看 MOD 助手自定义后缀"
+      },
+      {
+        "command": "rwMod.aiModifyFile",
+        "title": "AI 修改文件"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorLangId == json || editorLangId == rusted-warfare",
+          "command": "rwMod.explainUnit",
+          "group": "mod-actions"
+        },
+        {
+          "when": "editorLangId == rusted-warfare || editorLangId == ini",
+          "command": "rwMod.formatIni",
+          "group": "mod-actions"
+        },
+        {
+          "when": "(editorLangId == rusted-warfare || editorLangId == ini) && editorHasSelection",
+          "command": "rwMod.explainSelection",
+          "group": "mod-actions"
+        }
+      ],
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .json || resourceExtname == .ini",
+          "command": "rwMod.explainUnit",
+          "group": "mod-actions"
+        },
+        {
+          "when": "resourceExtname == .ini",
+          "command": "rwMod.formatIni",
+          "group": "mod-actions"
+        }
+      ]
+    },
+    "configurationDefaults": {
+      "[rusted-warfare]": {
+        "editor.wordBasedSuggestions": "off"
+      }
+    },
+    "languages": [
+      {
+        "id": "rusted-warfare",
+        "aliases": [
+          "Rusted Warfare MOD",
+          "RW MOD"
+        ],
+        "extensions": [
+          ".ini"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rusted-warfare",
+        "scopeName": "source.rw-mod",
+        "path": "./syntaxes/rw-mod.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "rusted-warfare",
+        "path": "./snippets/rw-mod.json"
+      }
+    ],
+    "configuration": {
+      "title": "铁锈模组智能小帮手",
+      "properties": {
+        "rwMod.aiProvider": {
+          "type": "string",
+          "default": "openai",
+          "enum": [
+            "openai",
+            "anthropic",
+            "custom"
+          ],
+          "description": "AI 服务商"
+        },
+        "rwMod.aiModel": {
+          "type": "string",
+          "default": "gpt-4o",
+          "description": "模型名称 (如 gpt-4o, claude-sonnet-4-20250514)"
+        },
+        "rwMod.aiEndpoint": {
+          "type": "string",
+          "default": "",
+          "description": "自定义 API 端点（可选）"
+        },
+        "rwMod.knowledgeDir": {
+          "type": "string",
+          "default": "",
+          "description": "MOD 知识库目录（存放 Wiki/教程/示例的文件夹）"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "check": "npm run check:commands && npm run check:knowledge && npm run compile",
+    "check:commands": "node scripts/checkCommands.js",
+    "check:knowledge": "node scripts/checkKnowledge.js",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "minisearch": "^6.3.0",
+    "xlsx": "^0.18.5"
+  }
+}

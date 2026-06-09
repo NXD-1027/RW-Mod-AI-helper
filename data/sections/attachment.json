@@ -1,0 +1,24 @@
+{
+  "name": "attachment",
+  "description": "附着点",
+  "data": [
+    { "name": "x", "type": "float", "description": "水平位置(1.13.3)", "example": "x: 0" },
+    { "name": "y", "type": "float", "description": "垂直位置(1.13.3)", "example": "y: 0" },
+    { "name": "height", "type": "float", "description": "高度(1.13.3)", "example": "height: 0" },
+    { "name": "idleDir", "type": "int", "description": "闲置方向(1.13.3)", "example": "idleDir: 0" },
+    { "name": "isVisible", "type": "bool", "description": "可见性(1.13.3)", "example": "isVisible: true" },
+    { "name": "isUnselectable", "type": "bool", "description": "不可选中(1.13.3)", "example": "isUnselectable: false" },
+    { "name": "onCreateSpawnUnitOf", "type": "string", "description": "创建时生成单位(1.13.3)", "example": "onCreateSpawnUnitOf: defenseTurret" },
+    { "name": "canAttack", "type": "bool", "description": "可攻击(1.13.3)", "example": "canAttack: true" },
+    { "name": "canBeAttackedAndDamaged", "type": "bool", "description": "可被攻击(1.13.3)", "example": "canBeAttackedAndDamaged: true" },
+    { "name": "deattachIfWantingToMove", "type": "bool", "description": "移动时脱离(1.13.3)", "example": "deattachIfWantingToMove: true" },
+    { "name": "lockLegMovement", "type": "bool", "description": "锁定腿部(1.13.3)", "example": "lockLegMovement: false" },
+    { "name": "keepAliveWhenParentDies", "type": "bool", "description": "父级死亡后继续存活(1.13.3)", "example": "keepAliveWhenParentDies: false" },
+    { "name": "setDrawLayerOnTop", "type": "bool", "description": "顶层渲染(1.13.3)", "example": "setDrawLayerOnTop: false" },
+    { "name": "setDrawLayerOnBottom", "type": "bool", "description": "底层渲染(1.13.3)", "example": "setDrawLayerOnBottom: false" },
+    { "name": "lockRotation", "type": "bool", "description": "锁定旋转(1.13.3)", "example": "lockRotation: false" },
+    { "name": "rotateWithParent", "type": "bool", "description": "随父级旋转(1.13.3)", "example": "rotateWithParent: true" },
+    { "name": "redirectDamageToParent", "type": "bool", "description": "伤害转嫁父级(1.14)", "example": "redirectDamageToParent: false" },
+    { "name": "unloadInCurrentPosition", "type": "bool", "description": "原地卸载(1.14)", "example": "unloadInCurrentPosition: true" }
+  ]
+}

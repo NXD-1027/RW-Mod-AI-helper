@@ -1,0 +1,12 @@
+{
+  "name": "teamRelation",
+  "data": [
+    { "name": "own", "description": "己方" },
+    { "name": "notOwn", "description": "非己方" },
+    { "name": "ally", "description": "盟友" },
+    { "name": "allyNotOwn", "description": "盟友（不含己方）" },
+    { "name": "enemy", "description": "敌方" },
+    { "name": "any", "description": "任何" },
+    { "name": "neutral", "description": "中立" }
+  ]
+}

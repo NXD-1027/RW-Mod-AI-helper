@@ -1,0 +1,9 @@
+{
+  "name": "teamColoringMode",
+  "data": [
+    { "name": "pureGreen", "description": "纯绿色着色" },
+    { "name": "hueAdd", "description": "色相叠加" },
+    { "name": "hueShift", "description": "色相偏移" },
+    { "name": "disabled", "description": "禁用队伍色" }
+  ]
+}

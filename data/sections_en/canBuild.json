@@ -1,0 +1,66 @@
+{
+  "name": "canBuild",
+  "description": "建造队列",
+  "data": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Name",
+      "example": "name: heavyTank"
+    },
+    {
+      "name": "pos",
+      "type": "float",
+      "description": "Position",
+      "example": "pos: 1"
+    },
+    {
+      "name": "tech",
+      "type": "int",
+      "description": "Tech",
+      "example": "tech: 1"
+    },
+    {
+      "name": "forceNano",
+      "type": "bool",
+      "description": "Force nano (true/false)",
+      "example": "forceNano: true"
+    },
+    {
+      "name": "isVisible",
+      "type": "string",
+      "description": "Is visible",
+      "example": "isVisible: true"
+    },
+    {
+      "name": "isLocked",
+      "type": "string",
+      "description": "Is locked",
+      "example": "isLocked: false"
+    },
+    {
+      "name": "isLockedMessage",
+      "type": "string",
+      "description": "Is locked message",
+      "example": "isLockedMessage: 需要更高科技"
+    },
+    {
+      "name": "isGuiBlinking",
+      "type": "string",
+      "description": "Is gui blinking",
+      "example": "isGuiBlinking: true"
+    },
+    {
+      "name": "addResources",
+      "type": "string",
+      "description": "Add resources",
+      "example": "addResources: credits=10"
+    },
+    {
+      "name": "price",
+      "type": "string",
+      "description": "Price",
+      "example": "price: credits=600"
+    }
+  ]
+}

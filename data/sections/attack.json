@@ -1,0 +1,28 @@
+{
+  "name": "attack",
+  "description": "攻击属性",
+  "data": [
+    { "name": "canAttack", "type": "bool", "description": "能否攻击", "example": "canAttack: true" },
+    { "name": "canAttackFlyingUnits", "type": "bool", "description": "对空", "example": "canAttackFlyingUnits: true" },
+    { "name": "canAttackLandUnits", "type": "bool", "description": "对地", "example": "canAttackLandUnits: true" },
+    { "name": "canAttackUnderwaterUnits", "type": "bool", "description": "对水下", "example": "canAttackUnderwaterUnits: false" },
+    { "name": "canAttackNotTouchingWaterUnits", "type": "bool", "description": "攻击非触水单位(1.13.3)", "example": "canAttackNotTouchingWaterUnits: false" },
+    { "name": "canOnlyAttackUnitsWithTags", "type": "string", "description": "仅攻击指定标签(1.13.3)", "example": "canOnlyAttackUnitsWithTags: metallic" },
+    { "name": "canOnlyAttackUnitsWithoutTags", "type": "string", "description": "不攻击指定标签(1.13.3)", "example": "canOnlyAttackUnitsWithoutTags: corrosive" },
+    { "name": "maxAttackRange", "type": "float", "description": "最大射程", "example": "maxAttackRange: 120" },
+    { "name": "shootDelay", "type": "float / s", "description": "射击间隔，支持帧数或秒单位", "example": "shootDelay: 5s" },
+    { "name": "shootDelayMultiplier", "type": "float", "description": "射击间隔倍率(1.15)", "example": "shootDelayMultiplier: 0.75" },
+    { "name": "shootDamageMultiplier", "type": "float", "description": "伤害倍率(1.15)", "example": "shootDamageMultiplier: 1.5" },
+    { "name": "turretMultiTargeting", "type": "bool", "description": "多炮塔独立索敌(1.13)", "example": "turretMultiTargeting: true" },
+    { "name": "isMelee", "type": "bool", "description": "是否为近战", "example": "isMelee: false" },
+    { "name": "meleeEngangementDistance", "type": "int", "description": "近战接敌距离(1.13.3)", "example": "meleeEngangementDistance: 400" },
+    { "name": "turretRotateWithBody", "type": "bool", "description": "炮塔随身体旋转", "example": "turretRotateWithBody: true" },
+    { "name": "attackMovement", "type": "attackMovement", "description": "攻击移动模式", "example": "attackMovement: normal" },
+    { "name": "dieOnAttack", "type": "bool", "description": "攻击后死亡", "example": "dieOnAttack: false" },
+    { "name": "isFixedFiring", "type": "bool", "description": "固定射击（需身体瞄准）", "example": "isFixedFiring: false" },
+    { "name": "aimOffsetSpread", "type": "float", "description": "散布偏移", "example": "aimOffsetSpread: 0" },
+    { "name": "stopTargetingAfterFiring", "type": "bool", "description": "射击后停止索敌(1.13)", "example": "stopTargetingAfterFiring: true" },
+    { "name": "disablePassiveTargeting", "type": "bool", "description": "仅攻击手动目标(1.13)", "example": "disablePassiveTargeting: true" },
+    { "name": "showRangeUIGuide", "type": "bool", "description": "显示范围指示(1.13.3)", "example": "showRangeUIGuide: true" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "bool",
+  "data": [
+    { "name": "true", "description": "是" },
+    { "name": "false", "description": "否" }
+  ]
+}

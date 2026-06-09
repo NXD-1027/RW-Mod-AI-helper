@@ -1,0 +1,114 @@
+{
+  "name": "attachment",
+  "description": "附着点",
+  "data": [
+    {
+      "name": "x",
+      "type": "float",
+      "description": "Attachment X offset",
+      "example": "x: 0"
+    },
+    {
+      "name": "y",
+      "type": "float",
+      "description": "Attachment Y offset",
+      "example": "y: 0"
+    },
+    {
+      "name": "height",
+      "type": "float",
+      "description": "Height",
+      "example": "height: 0"
+    },
+    {
+      "name": "idleDir",
+      "type": "int",
+      "description": "Idle direction",
+      "example": "idleDir: 0"
+    },
+    {
+      "name": "isVisible",
+      "type": "bool",
+      "description": "Is visible (true/false)",
+      "example": "isVisible: true"
+    },
+    {
+      "name": "isUnselectable",
+      "type": "bool",
+      "description": "Is unselectable (true/false)",
+      "example": "isUnselectable: false"
+    },
+    {
+      "name": "onCreateSpawnUnitOf",
+      "type": "string",
+      "description": "On create spawn unit of",
+      "example": "onCreateSpawnUnitOf: defenseTurret"
+    },
+    {
+      "name": "canAttack",
+      "type": "bool",
+      "description": "Can attack (true/false)",
+      "example": "canAttack: true"
+    },
+    {
+      "name": "canBeAttackedAndDamaged",
+      "type": "bool",
+      "description": "Can be attacked and damaged (true/false)",
+      "example": "canBeAttackedAndDamaged: true"
+    },
+    {
+      "name": "deattachIfWantingToMove",
+      "type": "bool",
+      "description": "Deattach if wanting to move (true/false)",
+      "example": "deattachIfWantingToMove: true"
+    },
+    {
+      "name": "lockLegMovement",
+      "type": "bool",
+      "description": "Lock leg movement (true/false)",
+      "example": "lockLegMovement: false"
+    },
+    {
+      "name": "keepAliveWhenParentDies",
+      "type": "bool",
+      "description": "Keep alive when parent dies (true/false)",
+      "example": "keepAliveWhenParentDies: false"
+    },
+    {
+      "name": "setDrawLayerOnTop",
+      "type": "bool",
+      "description": "Set draw layer on top (true/false)",
+      "example": "setDrawLayerOnTop: false"
+    },
+    {
+      "name": "setDrawLayerOnBottom",
+      "type": "bool",
+      "description": "Set draw layer on bottom (true/false)",
+      "example": "setDrawLayerOnBottom: false"
+    },
+    {
+      "name": "lockRotation",
+      "type": "bool",
+      "description": "Lock rotation (true/false)",
+      "example": "lockRotation: false"
+    },
+    {
+      "name": "rotateWithParent",
+      "type": "bool",
+      "description": "Rotate with parent (true/false)",
+      "example": "rotateWithParent: true"
+    },
+    {
+      "name": "redirectDamageToParent",
+      "type": "bool",
+      "description": "Redirect damage to parent (true/false)",
+      "example": "redirectDamageToParent: false"
+    },
+    {
+      "name": "unloadInCurrentPosition",
+      "type": "bool",
+      "description": "Unload in current position (true/false)",
+      "example": "unloadInCurrentPosition: true"
+    }
+  ]
+}

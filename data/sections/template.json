@@ -1,0 +1,11 @@
+{
+  "name": "template",
+  "description": "模板",
+  "data": [
+    { "name": "@copyFromSection", "type": "string", "description": "从其他段落包含键(1.13.3)", "example": "@copyFromSection: [attack]" },
+    { "name": "@copyFrom_skipThisSection", "type": "bool", "description": "跳过此段(1.13.3)", "example": "@copyFrom_skipThisSection: true" },
+    { "name": "@define", "type": "string", "description": "定义局部变量(1.13.3)", "example": "@define: maxHp = self.mass / 2" },
+    { "name": "@global", "type": "string", "description": "定义全局变量(1.13.3)", "example": "@global: isCaptured" },
+    { "name": "@memory", "type": "string", "description": "定义内存变量(1.15)", "example": "@memory: lastTarget" }
+  ]
+}

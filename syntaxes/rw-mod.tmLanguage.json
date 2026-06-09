@@ -1,0 +1,58 @@
+{
+  "name": "Rusted Warfare MOD",
+  "scopeName": "source.rw-mod",
+  "fileTypes": ["ini"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#sections" },
+    { "include": "#key-values" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.rw-mod",
+          "match": "(#|;).*$"
+        }
+      ]
+    },
+    "sections": {
+      "patterns": [
+        {
+          "name": "entity.name.section.rw-mod",
+          "begin": "\\[",
+          "end": "\\]",
+          "patterns": [
+            {
+              "name": "entity.name.section.rw-mod",
+              "match": "[^\\[\\]]+"
+            }
+          ]
+        }
+      ]
+    },
+    "key-values": {
+      "patterns": [
+        {
+          "name": "meta.key-value.rw-mod",
+          "match": "^\\s*([a-zA-Z_][a-zA-Z0-9_.]*)\\s*([:=])\\s*(.*)$",
+          "captures": {
+            "1": { "name": "variable.other.rw-mod" },
+            "2": { "name": "punctuation.separator.rw-mod" },
+            "3": { "patterns": [{ "include": "#values" }] }
+          }
+        }
+      ]
+    },
+    "values": {
+      "patterns": [
+        { "name": "constant.numeric.rw-mod", "match": "\\b\\d+(\\.\\d+)?\\b" },
+        { "name": "constant.language.boolean.rw-mod", "match": "\\b(true|false)\\b" },
+        { "name": "constant.other.color.rw-mod", "match": "#(?:[0-9a-fA-F]{3}(?:[0-9a-fA-F])?|[0-9a-fA-F]{6}(?:[0-9a-fA-F]{2})?)\\b" },
+        { "name": "constant.language.rw-mod", "match": "\\b(NONE|AUTO)\\b" },
+        { "name": "string.unquoted.rw-mod", "match": "[a-zA-Z_][a-zA-Z0-9_./-]*" }
+      ]
+    }
+  },
+  "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+}

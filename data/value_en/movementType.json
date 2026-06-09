@@ -1,0 +1,45 @@
+{
+  "name": "movementType",
+  "data": [
+    {
+      "name": "LAND",
+      "description": "Ground vehicle"
+    },
+    {
+      "name": "HOVER",
+      "description": "Hovercraft"
+    },
+    {
+      "name": "AIR",
+      "description": "Aircraft"
+    },
+    {
+      "name": "NAVAL",
+      "description": "Surface ship"
+    },
+    {
+      "name": "SUB",
+      "description": "Submarine"
+    },
+    {
+      "name": "AMPHIBIOUS",
+      "description": "Amphibious"
+    },
+    {
+      "name": "NONE",
+      "description": "Immobile"
+    },
+    {
+      "name": "BUILDING",
+      "description": "Building"
+    },
+    {
+      "name": "OVER_CLIFF",
+      "description": "Can cross cliffs"
+    },
+    {
+      "name": "OVER_CLIFF_WATER",
+      "description": "Can cross cliffs and water"
+    }
+  ]
+}

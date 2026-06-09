@@ -1,0 +1,18 @@
+{
+  "name": "ai",
+  "description": "AI行为",
+  "data": [
+    { "name": "useAsBuilder", "type": "string", "description": "用作建造者", "example": "useAsBuilder: builder" },
+    { "name": "useAsTransport", "type": "string", "description": "用作运输", "example": "useAsTransport: transport" },
+    { "name": "useAsHarvester", "type": "string", "description": "用作采集者", "example": "useAsHarvester: harvester" },
+    { "name": "disableUse", "type": "bool", "description": "禁止AI使用", "example": "disableUse: false" },
+    { "name": "ai_upgradePriority", "type": "float", "description": "升级优先级(0-1)", "example": "ai_upgradePriority: 0.5" },
+    { "name": "maxGlobal", "type": "int", "description": "全图最大数量", "example": "maxGlobal: 10" },
+    { "name": "maxEachBase", "type": "int", "description": "每基地最大数量", "example": "maxEachBase: 3" },
+    { "name": "buildPriority", "type": "float", "description": "建造优先级(0-1)", "example": "buildPriority: 0.8" },
+    { "name": "recommendedInEachBaseNum", "type": "float", "description": "每基地推荐数量", "example": "recommendedInEachBaseNum: 2" },
+    { "name": "upgradedFrom", "type": "string", "description": "来自升级的单位", "example": "upgradedFrom: scoutTank" },
+    { "name": "notPassivelyTargetedByOtherUnits", "type": "bool", "description": "被动单位(1.14)", "example": "notPassivelyTargetedByOtherUnits: false" },
+    { "name": "lowPriorityTargetForOtherUnits", "type": "bool", "description": "低优先级目标(1.14)", "example": "lowPriorityTargetForOtherUnits: false" }
+  ]
+}

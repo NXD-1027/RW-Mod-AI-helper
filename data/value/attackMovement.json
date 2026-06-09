@@ -1,0 +1,7 @@
+{
+  "name": "attackMovement",
+  "data": [
+    { "name": "normal", "description": "追着打" },
+    { "name": "bomber", "description": "轰炸机模式（飞过目标时攻击）" }
+  ]
+}

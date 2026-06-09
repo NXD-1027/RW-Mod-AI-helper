@@ -1,0 +1,138 @@
+{
+  "name": "leg",
+  "description": "腿（可移动装饰）",
+  "data": [
+    {
+      "name": "x",
+      "type": "float",
+      "description": "Leg X offset",
+      "example": "x: 0"
+    },
+    {
+      "name": "y",
+      "type": "float",
+      "description": "Leg Y offset",
+      "example": "y: 0"
+    },
+    {
+      "name": "copyFrom",
+      "type": "int",
+      "description": "Copy from",
+      "example": "copyFrom: 1"
+    },
+    {
+      "name": "attach_x",
+      "type": "float",
+      "description": "Attach x",
+      "example": "attach_x: 0"
+    },
+    {
+      "name": "attach_y",
+      "type": "float",
+      "description": "Attach y",
+      "example": "attach_y: 0"
+    },
+    {
+      "name": "rotateSpeed",
+      "type": "float",
+      "description": "Rotate speed",
+      "example": "rotateSpeed: 2"
+    },
+    {
+      "name": "endDirOffset",
+      "type": "int",
+      "description": "End direction offset",
+      "example": "endDirOffset: 0"
+    },
+    {
+      "name": "lockMovement",
+      "type": "bool",
+      "description": "Lock movement (true/false)",
+      "example": "lockMovement: true"
+    },
+    {
+      "name": "heightSpeed",
+      "type": "float",
+      "description": "Height speed",
+      "example": "heightSpeed: 1"
+    },
+    {
+      "name": "moveSpeed",
+      "type": "float",
+      "description": "Move speed",
+      "example": "moveSpeed: 1"
+    },
+    {
+      "name": "holdDisMin",
+      "type": "float",
+      "description": "Hold dis minimum",
+      "example": "holdDisMin: 7"
+    },
+    {
+      "name": "holdDisMax",
+      "type": "float",
+      "description": "Hold dis maximum",
+      "example": "holdDisMax: 16"
+    },
+    {
+      "name": "hardLimit",
+      "type": "float",
+      "description": "Hard limit",
+      "example": "hardLimit: 50"
+    },
+    {
+      "name": "hidden",
+      "type": "bool",
+      "description": "Hidden (true/false)",
+      "example": "hidden: false"
+    },
+    {
+      "name": "image_leg",
+      "type": "string",
+      "description": "Image leg",
+      "example": "image_leg: leg.png"
+    },
+    {
+      "name": "image_foot",
+      "type": "string",
+      "description": "Image foot",
+      "example": "image_foot: foot.png"
+    },
+    {
+      "name": "dust_effect",
+      "type": "bool",
+      "description": "Dust effect (true/false)",
+      "example": "dust_effect: true"
+    },
+    {
+      "name": "spinRate",
+      "type": "float",
+      "description": "Spin rate",
+      "example": "spinRate: 3"
+    },
+    {
+      "name": "drawOverBody",
+      "type": "bool",
+      "description": "Draw over body (true/false)",
+      "example": "drawOverBody: false"
+    },
+    {
+      "name": "drawUnderAllUnits",
+      "type": "bool",
+      "description": "Draw under all units (true/false)",
+      "example": "drawUnderAllUnits: false"
+    },
+    {
+      "name": "drawDirOffset",
+      "type": "float",
+      "description": "Draw direction offset",
+      "example": "drawDirOffset: 0"
+    },
+    {
+      "name": "targetHeight",
+      "type": "int",
+      "description": "Target height",
+      "example": "targetHeight: 0"
+    }
+  ]
+}

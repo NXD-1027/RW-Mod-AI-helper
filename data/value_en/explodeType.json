@@ -1,0 +1,37 @@
+{
+  "name": "explodeType",
+  "data": [
+    {
+      "name": "verysmall",
+      "description": "verysmall"
+    },
+    {
+      "name": "small",
+      "description": "small"
+    },
+    {
+      "name": "normal",
+      "description": "normal"
+    },
+    {
+      "name": "large",
+      "description": "large"
+    },
+    {
+      "name": "largeUnit",
+      "description": "largeUnit"
+    },
+    {
+      "name": "building",
+      "description": "building"
+    },
+    {
+      "name": "buildingNoShockwaveOrSmoke",
+      "description": "buildingNoShockwaveOrSmoke"
+    },
+    {
+      "name": "verylargeBuilding",
+      "description": "verylargeBuilding"
+    }
+  ]
+}

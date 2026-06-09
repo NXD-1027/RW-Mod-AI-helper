@@ -1,0 +1,8 @@
+node_modules/
+out/
+*.vsix
+*.js.map
+.vscode-test/
+.vscode/
+*.code-workspace
+/release/

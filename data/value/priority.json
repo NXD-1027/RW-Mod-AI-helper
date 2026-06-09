@@ -1,0 +1,10 @@
+{
+  "name": "priority",
+  "data": [
+    { "name": "verylow", "description": "非常低" },
+    { "name": "low", "description": "低" },
+    { "name": "high", "description": "高" },
+    { "name": "veryhigh", "description": "非常高" },
+    { "name": "critical", "description": "临界" }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "name": "decal",
+  "description": "贴花/2.5D精灵",
+  "data": [
+    {
+      "name": "image",
+      "type": "string",
+      "description": "Decal sprite path",
+      "example": "image: decal.png"
+    },
+    {
+      "name": "imageStack",
+      "type": "string",
+      "description": "Image stack",
+      "example": "imageStack: stack.png"
+    },
+    {
+      "name": "imageScale",
+      "type": "float",
+      "description": "Image scale",
+      "example": "imageScale: 1"
+    },
+    {
+      "name": "imageScaleX",
+      "type": "float",
+      "description": "Image scale x",
+      "example": "imageScaleX: 1"
+    },
+    {
+      "name": "imageScaleY",
+      "type": "float",
+      "description": "Image scale y",
+      "example": "imageScaleY: 1"
+    },
+    {
+      "name": "image_shadow",
+      "type": "imageShadow",
+      "description": "Image shadow",
+      "example": "image_shadow: AUTO"
+    },
+    {
+      "name": "shadowOffsetX",
+      "type": "int",
+      "description": "Shadow offset x",
+      "example": "shadowOffsetX: 0"
+    },
+    {
+      "name": "shadowOffsetY",
+      "type": "int",
+      "description": "Shadow offset y",
+      "example": "shadowOffsetY: 0"
+    },
+    {
+      "name": "layer",
+      "type": "string",
+      "description": "Layer",
+      "example": "layer: bottom"
+    },
+    {
+      "name": "order",
+      "type": "float",
+      "description": "Order",
+      "example": "order: 0.5"
+    },
+    {
+      "name": "teamColors",
+      "type": "bool",
+      "description": "Team colors (true/false)",
+      "example": "teamColors: true"
+    },
+    {
+      "name": "alpha",
+      "type": "float",
+      "description": "Alpha/opacity",
+      "example": "alpha: 1"
+    },
+    {
+      "name": "isVisible",
+      "type": "bool",
+      "description": "Is visible (true/false)",
+      "example": "isVisible: true"
+    },
+    {
+      "name": "onlyWhenSelectedByOwnPlayer",
+      "type": "bool",
+      "description": "Only when selected by own player (true/false)",
+      "example": "onlyWhenSelectedByOwnPlayer: false"
+    },
+    {
+      "name": "onlyWhenSelectedByEnemyPlayer",
+      "type": "bool",
+      "description": "Only when selected by enemy player (true/false)",
+      "example": "onlyWhenSelectedByEnemyPlayer: false"
+    },
+    {
+      "name": "onlyTeam",
+      "type": "teamRelation",
+      "description": "Only team",
+      "example": "onlyTeam: own"
+    },
+    {
+      "name": "onlyWhileActive",
+      "type": "bool",
+      "description": "Only while active (true/false)",
+      "example": "onlyWhileActive: true"
+    },
+    {
+      "name": "onlyWhileAlive",
+      "type": "bool",
+      "description": "Only while alive (true/false)",
+      "example": "onlyWhileAlive: true"
+    },
+    {
+      "name": "onlyInPreview",
+      "type": "bool",
+      "description": "Only in preview (true/false)",
+      "example": "onlyInPreview: false"
+    },
+    {
+      "name": "onlyWithZoomLevelOrMore",
+      "type": "float",
+      "description": "Only with zoom level or more",
+      "example": "onlyWithZoomLevelOrMore: 0.5"
+    },
+    {
+      "name": "xOffsetRelative",
+      "type": "int",
+      "description": "X offset relative",
+      "example": "xOffsetRelative: 0"
+    },
+    {
+      "name": "yOffsetRelative",
+      "type": "int",
+      "description": "Y offset relative",
+      "example": "yOffsetRelative: 0"
+    },
+    {
+      "name": "xOffsetAbsolute",
+      "type": "int",
+      "description": "X offset absolute",
+      "example": "xOffsetAbsolute: 0"
+    },
+    {
+      "name": "yOffsetAbsolute",
+      "type": "int",
+      "description": "Y offset absolute",
+      "example": "yOffsetAbsolute: 0"
+    },
+    {
+      "name": "hOffset",
+      "type": "int",
+      "description": "H offset",
+      "example": "hOffset: 0"
+    },
+    {
+      "name": "dirOffset",
+      "type": "int",
+      "description": "Direction offset",
+      "example": "dirOffset: 0"
+    },
+    {
+      "name": "pivotOffset",
+      "type": "int",
+      "description": "Pivot offset",
+      "example": "pivotOffset: 0"
+    },
+    {
+      "name": "alwaysStartDirAtZero",
+      "type": "bool",
+      "description": "Always start direction at zero (true/false)",
+      "example": "alwaysStartDirAtZero: false"
+    },
+    {
+      "name": "total_frames",
+      "type": "int",
+      "description": "Total frames",
+      "example": "total_frames: 1"
+    },
+    {
+      "name": "frame_width",
+      "type": "int",
+      "description": "Frame width",
+      "example": "frame_width: 64"
+    },
+    {
+      "name": "frame_height",
+      "type": "int",
+      "description": "Frame height",
+      "example": "frame_height: 64"
+    },
+    {
+      "name": "frame",
+      "type": "int",
+      "description": "Animation frame",
+      "example": "frame: 0"
+    },
+    {
+      "name": "basePosition",
+      "type": "string",
+      "description": "Base position",
+      "example": "basePosition: bottom"
+    },
+    {
+      "name": "basePositionFromLegEnd",
+      "type": "string",
+      "description": "Base position from leg end",
+      "example": "basePositionFromLegEnd: 1"
+    },
+    {
+      "name": "basePositionFromTurret",
+      "type": "string",
+      "description": "Base position from turret",
+      "example": "basePositionFromTurret: cannon"
+    },
+    {
+      "name": "drawLineTo",
+      "type": "string",
+      "description": "Draw line to",
+      "example": "drawLineTo: ref"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "description": "Tint color (#RRGGBB)",
+      "example": "color: #ff0000"
+    },
+    {
+      "name": "lineWidth",
+      "type": "float",
+      "description": "Line width",
+      "example": "lineWidth: 1"
+    },
+    {
+      "name": "stack_hOffset",
+      "type": "float",
+      "description": "Stack h offset",
+      "example": "stack_hOffset: 5"
+    },
+    {
+      "name": "stack_frameOffset",
+      "type": "int",
+      "description": "Stack frame offset",
+      "example": "stack_frameOffset: 1"
+    },
+    {
+      "name": "stack_drawInReverseOrder",
+      "type": "bool",
+      "description": "Stack draw in reverse order (true/false)",
+      "example": "stack_drawInReverseOrder: false"
+    },
+    {
+      "name": "stack_indexStart",
+      "type": "int",
+      "description": "Stack index start",
+      "example": "stack_indexStart: 0"
+    },
+    {
+      "name": "stack_indexCount",
+      "type": "int",
+      "description": "Stack index count",
+      "example": "stack_indexCount: 3"
+    }
+  ]
+}

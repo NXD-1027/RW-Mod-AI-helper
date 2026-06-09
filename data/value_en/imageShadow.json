@@ -1,0 +1,17 @@
+{
+  "name": "imageShadow",
+  "data": [
+    {
+      "name": "AUTO",
+      "description": "AUTO"
+    },
+    {
+      "name": "AUTO_ANIMATED",
+      "description": "AUTO_ANIMATED"
+    },
+    {
+      "name": "NONE",
+      "description": "NONE"
+    }
+  ]
+}

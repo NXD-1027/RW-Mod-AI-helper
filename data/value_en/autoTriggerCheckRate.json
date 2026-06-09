@@ -1,0 +1,17 @@
+{
+  "name": "autoTriggerCheckRate",
+  "data": [
+    {
+      "name": "everyFrame",
+      "description": "everyFrame"
+    },
+    {
+      "name": "every4Frames",
+      "description": "every4Frames"
+    },
+    {
+      "name": "every8Frames",
+      "description": "every8Frames"
+    }
+  ]
+}

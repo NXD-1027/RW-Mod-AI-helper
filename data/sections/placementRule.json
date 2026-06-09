@@ -1,0 +1,19 @@
+{
+  "name": "placementRule",
+  "description": "放置规则",
+  "data": [
+    { "name": "anyRuleInGroup", "type": "bool", "description": "组内仅需满足一条(1.14)", "example": "anyRuleInGroup: true" },
+    { "name": "searchTags", "type": "string", "description": "搜索标签(1.14)", "example": "searchTags: factory" },
+    { "name": "searchTeam", "type": "teamRelation", "description": "搜索队伍关系(1.14)", "example": "searchTeam: ally" },
+    { "name": "searchOffsetX", "type": "float", "description": "搜索偏移X(1.14)", "example": "searchOffsetX: 0" },
+    { "name": "searchOffsetY", "type": "float", "description": "搜索偏移Y(1.14)", "example": "searchOffsetY: 0" },
+    { "name": "searchDistance", "type": "float", "description": "搜索距离(1.14)", "example": "searchDistance: 100" },
+    { "name": "excludeIncompleteBuildings", "type": "bool", "description": "排除未完成建筑(1.14)", "example": "excludeIncompleteBuildings: false" },
+    { "name": "excludeNonBuildings", "type": "bool", "description": "排除非建筑(1.14)", "example": "excludeNonBuildings: false" },
+    { "name": "minCount", "type": "int", "description": "最小数量(1.14)", "example": "minCount: 1" },
+    { "name": "maxCount", "type": "int", "description": "最大数量(1.14)", "example": "maxCount: 5" },
+    { "name": "blocksPlacement", "type": "bool", "description": "阻止放置(1.14)", "example": "blocksPlacement: true" },
+    { "name": "cannotPlaceMessage", "type": "string", "description": "无法放置提示(1.14)", "example": "cannotPlaceMessage: 需要工厂附近" },
+    { "name": "checkEachTile", "type": "bool", "description": "逐格检测(1.14)", "example": "checkEachTile: true" }
+  ]
+}

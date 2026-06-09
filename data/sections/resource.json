@@ -1,0 +1,11 @@
+{
+  "name": "resource",
+  "description": "本地资源",
+  "data": [
+    { "name": "displayName", "type": "string", "description": "资源显示名称(1.13.3)", "example": "displayName: 弹药" },
+    { "name": "displayNameShort", "type": "string", "description": "短名称(1.13.3)", "example": "displayNameShort: 弹" },
+    { "name": "hidden", "type": "bool", "description": "隐藏(1.13.3)", "example": "hidden: false" },
+    { "name": "equivalentGlobalResourceForAI", "type": "string", "description": "AI等价全局资源(1.13.3)", "example": "equivalentGlobalResourceForAI: credits" },
+    { "name": "displayRoundedDown", "type": "bool", "description": "取整(1.14)", "example": "displayRoundedDown: true" }
+  ]
+}

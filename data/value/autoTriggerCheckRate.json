@@ -1,0 +1,8 @@
+{
+  "name": "autoTriggerCheckRate",
+  "data": [
+    { "name": "everyFrame", "description": "每帧检测" },
+    { "name": "every4Frames", "description": "每4帧检测" },
+    { "name": "every8Frames", "description": "每8帧检测" }
+  ]
+}

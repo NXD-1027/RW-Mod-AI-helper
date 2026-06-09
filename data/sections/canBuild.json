@@ -1,0 +1,16 @@
+{
+  "name": "canBuild",
+  "description": "建造队列",
+  "data": [
+    { "name": "name", "type": "string", "description": "可建造的单位名（逗号分隔）", "example": "name: heavyTank" },
+    { "name": "pos", "type": "float", "description": "建造按钮位置", "example": "pos: 1" },
+    { "name": "tech", "type": "int", "description": "科技等级", "example": "tech: 1" },
+    { "name": "forceNano", "type": "bool", "description": "纳米建造模式", "example": "forceNano: true" },
+    { "name": "isVisible", "type": "string", "description": "建造按钮可见性", "example": "isVisible: true" },
+    { "name": "isLocked", "type": "string", "description": "建造锁定", "example": "isLocked: false" },
+    { "name": "isLockedMessage", "type": "string", "description": "锁定提示文字", "example": "isLockedMessage: 需要更高科技" },
+    { "name": "isGuiBlinking", "type": "string", "description": "闪烁UI", "example": "isGuiBlinking: true" },
+    { "name": "addResources", "type": "string", "description": "建造时获得资源", "example": "addResources: credits=10" },
+    { "name": "price", "type": "string", "description": "覆盖价格", "example": "price: credits=600" }
+  ]
+}

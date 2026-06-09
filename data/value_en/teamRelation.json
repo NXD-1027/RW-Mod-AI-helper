@@ -1,0 +1,33 @@
+{
+  "name": "teamRelation",
+  "data": [
+    {
+      "name": "own",
+      "description": "own"
+    },
+    {
+      "name": "notOwn",
+      "description": "notOwn"
+    },
+    {
+      "name": "ally",
+      "description": "ally"
+    },
+    {
+      "name": "allyNotOwn",
+      "description": "allyNotOwn"
+    },
+    {
+      "name": "enemy",
+      "description": "enemy"
+    },
+    {
+      "name": "any",
+      "description": "any"
+    },
+    {
+      "name": "neutral",
+      "description": "neutral"
+    }
+  ]
+}

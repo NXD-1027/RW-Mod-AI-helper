@@ -1,0 +1,78 @@
+{
+  "name": "ai",
+  "description": "AI行为",
+  "data": [
+    {
+      "name": "useAsBuilder",
+      "type": "string",
+      "description": "AI uses as builder",
+      "example": "useAsBuilder: builder"
+    },
+    {
+      "name": "useAsTransport",
+      "type": "string",
+      "description": "Use as transport",
+      "example": "useAsTransport: transport"
+    },
+    {
+      "name": "useAsHarvester",
+      "type": "string",
+      "description": "Use as harvester",
+      "example": "useAsHarvester: harvester"
+    },
+    {
+      "name": "disableUse",
+      "type": "bool",
+      "description": "Disabled use (true/false)",
+      "example": "disableUse: false"
+    },
+    {
+      "name": "ai_upgradePriority",
+      "type": "float",
+      "description": "AI upgrade priority",
+      "example": "ai_upgradePriority: 0.5"
+    },
+    {
+      "name": "maxGlobal",
+      "type": "int",
+      "description": "Maximum global",
+      "example": "maxGlobal: 10"
+    },
+    {
+      "name": "maxEachBase",
+      "type": "int",
+      "description": "Maximum each base",
+      "example": "maxEachBase: 3"
+    },
+    {
+      "name": "buildPriority",
+      "type": "float",
+      "description": "Build priority",
+      "example": "buildPriority: 0.8"
+    },
+    {
+      "name": "recommendedInEachBaseNum",
+      "type": "float",
+      "description": "Recommended in each base number",
+      "example": "recommendedInEachBaseNum: 2"
+    },
+    {
+      "name": "upgradedFrom",
+      "type": "string",
+      "description": "Upgraded from",
+      "example": "upgradedFrom: scoutTank"
+    },
+    {
+      "name": "notPassivelyTargetedByOtherUnits",
+      "type": "bool",
+      "description": "Not passively targeted by other units (true/false)",
+      "example": "notPassivelyTargetedByOtherUnits: false"
+    },
+    {
+      "name": "lowPriorityTargetForOtherUnits",
+      "type": "bool",
+      "description": "Low priority target for other units (true/false)",
+      "example": "lowPriorityTargetForOtherUnits: false"
+    }
+  ]
+}

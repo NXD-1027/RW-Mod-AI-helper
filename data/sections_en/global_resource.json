@@ -1,0 +1,72 @@
+{
+  "name": "global_resource",
+  "description": "全局资源",
+  "data": [
+    {
+      "name": "displayName",
+      "type": "string",
+      "description": "Display name",
+      "example": "displayName: 金币"
+    },
+    {
+      "name": "displayNameShort",
+      "type": "string",
+      "description": "Display name short",
+      "example": "displayNameShort: 金"
+    },
+    {
+      "name": "hidden",
+      "type": "bool",
+      "description": "Hidden (true/false)",
+      "example": "hidden: false"
+    },
+    {
+      "name": "priority",
+      "type": "float",
+      "description": "Priority",
+      "example": "priority: 1"
+    },
+    {
+      "name": "displayColor",
+      "type": "string",
+      "description": "Display color",
+      "example": "displayColor: #ffd700"
+    },
+    {
+      "name": "displayRoundedDown",
+      "type": "bool",
+      "description": "Display rounded down (true/false)",
+      "example": "displayRoundedDown: true"
+    },
+    {
+      "name": "displayWhenZero",
+      "type": "bool",
+      "description": "Display when zero (true/false)",
+      "example": "displayWhenZero: false"
+    },
+    {
+      "name": "displayPos",
+      "type": "int",
+      "description": "Display position",
+      "example": "displayPos: 1"
+    },
+    {
+      "name": "iconImage",
+      "type": "string",
+      "description": "Icon image",
+      "example": "iconImage: gold.png"
+    },
+    {
+      "name": "displayInHud",
+      "type": "bool",
+      "description": "Display in hud (true/false)",
+      "example": "displayInHud: true"
+    },
+    {
+      "name": "valueInStats",
+      "type": "float",
+      "description": "Value in stats",
+      "example": "valueInStats: 1"
+    }
+  ]
+}

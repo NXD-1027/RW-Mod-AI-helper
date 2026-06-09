@@ -1,0 +1,16 @@
+{
+  "name": "animation",
+  "description": "动画定义",
+  "data": [
+    { "name": "onActions", "type": "onAction", "description": "动画触发事件", "example": "onActions: move" },
+    { "name": "onActionsQueuedUnitPlayAt", "type": "float", "description": "队列进度触发位置", "example": "onActionsQueuedUnitPlayAt: 0.5" },
+    { "name": "blendIn", "type": "float / s", "description": "淡入时间，支持小数或秒单位", "example": "blendIn: 0.5s" },
+    { "name": "blendOut", "type": "float / s", "description": "淡出时间，支持小数或秒单位", "example": "blendOut: 0.5s" },
+    { "name": "pingPong", "type": "bool", "description": "往返播放", "example": "pingPong: true" },
+    { "name": "KeyframeTimeScale", "type": "float", "description": "关键帧时间缩放", "example": "KeyframeTimeScale: 1" },
+    { "name": "direction_units", "type": "float", "description": "方向动画角度", "example": "direction_units: 45" },
+    { "name": "direction_strideX", "type": "int", "description": "方向X步进", "example": "direction_strideX: 40" },
+    { "name": "direction_strideY", "type": "int", "description": "方向Y步进", "example": "direction_strideY: 60" },
+    { "name": "direction_starting", "type": "float", "description": "起始方向", "example": "direction_starting: 0" }
+  ]
+}

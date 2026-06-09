@@ -1,0 +1,486 @@
+{
+  "name": "action",
+  "description": "动作（UI可见）",
+  "data": [
+    {
+      "name": "text",
+      "type": "string",
+      "description": "Button text (supports dynamic text)",
+      "example": "text: 开火"
+    },
+    {
+      "name": "textPostFix",
+      "type": "string",
+      "description": "Text postfix (1.15)",
+      "example": "textPostFix: ]"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Description",
+      "example": "description: 对目标区域开火"
+    },
+    {
+      "name": "displayType",
+      "type": "displayType",
+      "description": "Display type",
+      "example": "displayType: upgrade"
+    },
+    {
+      "name": "displayRemainingStockpile",
+      "type": "bool",
+      "description": "Display remaining stockpile (true/false)",
+      "example": "displayRemainingStockpile: true"
+    },
+    {
+      "name": "pos",
+      "type": "float",
+      "description": "Position",
+      "example": "pos: 1"
+    },
+    {
+      "name": "iconImage",
+      "type": "string",
+      "description": "Icon image",
+      "example": "iconImage: fireShot.png"
+    },
+    {
+      "name": "iconExtraImage",
+      "type": "string",
+      "description": "Icon extra image",
+      "example": "iconExtraImage: fireShotNo.png"
+    },
+    {
+      "name": "iconExtraColor",
+      "type": "string",
+      "description": "Icon extra color",
+      "example": "iconExtraColor: #ff0000"
+    },
+    {
+      "name": "price",
+      "type": "string",
+      "description": "Price",
+      "example": "price: credits=5"
+    },
+    {
+      "name": "isActive",
+      "type": "bool",
+      "description": "Is active (true/false)",
+      "example": "isActive: true"
+    },
+    {
+      "name": "isVisible",
+      "type": "bool",
+      "description": "Is visible (true/false)",
+      "example": "isVisible: true"
+    },
+    {
+      "name": "isLocked",
+      "type": "bool",
+      "description": "Is locked (true/false)",
+      "example": "isLocked: false"
+    },
+    {
+      "name": "isLockedMessage",
+      "type": "string",
+      "description": "Is locked message",
+      "example": "isLockedMessage: 弹药不足"
+    },
+    {
+      "name": "allowMultipleInQueue",
+      "type": "bool",
+      "description": "Allow multiple in queue (true/false)",
+      "example": "allowMultipleInQueue: true"
+    },
+    {
+      "name": "onlyOneUnitAtATime",
+      "type": "bool",
+      "description": "Only one unit at a time (true/false)",
+      "example": "onlyOneUnitAtATime: true"
+    },
+    {
+      "name": "isGuiBlinking",
+      "type": "bool",
+      "description": "Is gui blinking (true/false)",
+      "example": "isGuiBlinking: true"
+    },
+    {
+      "name": "autoTrigger",
+      "type": "string",
+      "description": "Auto-trigger condition (LogicBoolean)",
+      "example": "autoTrigger: if self.overWater()"
+    },
+    {
+      "name": "autoTriggerOnEvent",
+      "type": "string",
+      "description": "Auto trigger on event",
+      "example": "autoTriggerOnEvent: queueItemCancelled"
+    },
+    {
+      "name": "autoTriggerOnEventRecursionLimit",
+      "type": "int",
+      "description": "Auto trigger on event recursion limit",
+      "example": "autoTriggerOnEventRecursionLimit: 4"
+    },
+    {
+      "name": "buildSpeed",
+      "type": "float / s",
+      "description": "Build speed",
+      "example": "buildSpeed: 5s"
+    },
+    {
+      "name": "highPriorityQueue",
+      "type": "bool",
+      "description": "High priority queue (true/false)",
+      "example": "highPriorityQueue: true"
+    },
+    {
+      "name": "canPlayerCancel",
+      "type": "bool",
+      "description": "Can player cancel (true/false)",
+      "example": "canPlayerCancel: true"
+    },
+    {
+      "name": "whenBuilding_cannotMove",
+      "type": "bool",
+      "description": "When building cannot move (true/false)",
+      "example": "whenBuilding_cannotMove: true"
+    },
+    {
+      "name": "whenBuilding_playAnimation",
+      "type": "string",
+      "description": "When building play animation",
+      "example": "whenBuilding_playAnimation: firePrepare"
+    },
+    {
+      "name": "whenBuilding_rotateTo",
+      "type": "float",
+      "description": "When building rotate to",
+      "example": "whenBuilding_rotateTo: 45"
+    },
+    {
+      "name": "whenBuilding_temporarilyConvertTo",
+      "type": "string",
+      "description": "When building temporarily convert to",
+      "example": "whenBuilding_temporarilyConvertTo: cannon_uberState"
+    },
+    {
+      "name": "whenBuilding_triggerAction",
+      "type": "string",
+      "description": "When building trigger action",
+      "example": "whenBuilding_triggerAction: spawnMinions"
+    },
+    {
+      "name": "requireConditional",
+      "type": "string",
+      "description": "Require conditional",
+      "example": "requireConditional: if self.resource.mass < 300"
+    },
+    {
+      "name": "convertTo",
+      "type": "string",
+      "description": "Convert to",
+      "example": "convertTo: fishLevel2"
+    },
+    {
+      "name": "addEnergy",
+      "type": "float",
+      "description": "Add energy",
+      "example": "addEnergy: 10"
+    },
+    {
+      "name": "addResources",
+      "type": "string",
+      "description": "Add resources",
+      "example": "addResources: credits=5"
+    },
+    {
+      "name": "addResourcesWithLogic",
+      "type": "string",
+      "description": "Add resources with logic",
+      "example": "addResourcesWithLogic: hp = self.parent.hp"
+    },
+    {
+      "name": "setResourcesWithLogic",
+      "type": "string",
+      "description": "Set resources with logic",
+      "example": "setResourcesWithLogic: energy = self.energy / 2"
+    },
+    {
+      "name": "deleteSelf",
+      "type": "bool",
+      "description": "Delete self (true/false)",
+      "example": "deleteSelf: true"
+    },
+    {
+      "name": "resetCustomTimer",
+      "type": "string",
+      "description": "Reset custom timer",
+      "example": "resetCustomTimer: true"
+    },
+    {
+      "name": "setBodyRotation",
+      "type": "float",
+      "description": "Set body rotation",
+      "example": "setBodyRotation: 270"
+    },
+    {
+      "name": "setUnitStats",
+      "type": "string",
+      "description": "Set unit stats",
+      "example": "setUnitStats: maxShield += 20"
+    },
+    {
+      "name": "resetUnitStats",
+      "type": "bool",
+      "description": "Reset unit stats (true/false)",
+      "example": "resetUnitStats: true"
+    },
+    {
+      "name": "setUnitMemory",
+      "type": "string",
+      "description": "Set unit memory",
+      "example": "setUnitMemory: customText=hello"
+    },
+    {
+      "name": "setHeight",
+      "type": "float",
+      "description": "Set height",
+      "example": "setHeight: parent.height+5"
+    },
+    {
+      "name": "setCustomTarget1",
+      "type": "string",
+      "description": "Set custom target1",
+      "example": "setCustomTarget1: self.parent"
+    },
+    {
+      "name": "setCustomTarget2",
+      "type": "string",
+      "description": "Set custom target2",
+      "example": "setCustomTarget2: lastDamagedBy"
+    },
+    {
+      "name": "sendMessageTo",
+      "type": "string",
+      "description": "Send message to",
+      "example": "sendMessageTo: nearestUnit(withinRange=100, withTag=\"fish\")"
+    },
+    {
+      "name": "alsoTriggerAction",
+      "type": "string",
+      "description": "Also trigger action",
+      "example": "alsoTriggerAction: addCredits"
+    },
+    {
+      "name": "alsoQueueAction",
+      "type": "string",
+      "description": "Also queue action",
+      "example": "alsoQueueAction: spawnMinions"
+    },
+    {
+      "name": "fireTurretXAtGround",
+      "type": "string",
+      "description": "Fire turret x at ground",
+      "example": "fireTurretXAtGround: nukeSilo"
+    },
+    {
+      "name": "fireTurretXAtGround_count",
+      "type": "int",
+      "description": "Fire turret x at ground count",
+      "example": "fireTurretXAtGround_count: 3"
+    },
+    {
+      "name": "spawnUnits",
+      "type": "string",
+      "description": "Spawn units",
+      "example": "spawnUnits: heavyTank*5"
+    },
+    {
+      "name": "produceUnits",
+      "type": "string",
+      "description": "Produce units",
+      "example": "produceUnits: builder*4"
+    },
+    {
+      "name": "spawnEffects",
+      "type": "string",
+      "description": "Spawn effects",
+      "example": "spawnEffects: CUSTOM:puff"
+    },
+    {
+      "name": "playSoundAtUnit",
+      "type": "string",
+      "description": "Play sound at unit",
+      "example": "playSoundAtUnit: engineStart.ogg"
+    },
+    {
+      "name": "playSoundGlobally",
+      "type": "string",
+      "description": "Play sound globally",
+      "example": "playSoundGlobally: hornWarn.ogg"
+    },
+    {
+      "name": "playSoundToPlayer",
+      "type": "string",
+      "description": "Play sound to player",
+      "example": "playSoundToPlayer: confirm.wav"
+    },
+    {
+      "name": "playAnimation",
+      "type": "string",
+      "description": "Play animation",
+      "example": "playAnimation: engageThrusters"
+    },
+    {
+      "name": "addWaypoint_type",
+      "type": "string",
+      "description": "Add waypoint type",
+      "example": "addWaypoint_type: move"
+    },
+    {
+      "name": "addWaypoint_prepend",
+      "type": "bool",
+      "description": "Add waypoint prepend (true/false)",
+      "example": "addWaypoint_prepend: false"
+    },
+    {
+      "name": "clearAllWaypoints",
+      "type": "bool",
+      "description": "Clear all waypoints (true/false)",
+      "example": "clearAllWaypoints: true"
+    },
+    {
+      "name": "clearActiveWaypoint",
+      "type": "bool",
+      "description": "Clear active waypoint (true/false)",
+      "example": "clearActiveWaypoint: true"
+    },
+    {
+      "name": "teleportTo",
+      "type": "string",
+      "description": "Teleport to",
+      "example": "teleportTo: memory.lastLocation"
+    },
+    {
+      "name": "showMessageToPlayer",
+      "type": "string",
+      "description": "Show message to player",
+      "example": "showMessageToPlayer: 发现隐藏敌人"
+    },
+    {
+      "name": "showMessageToAllPlayers",
+      "type": "string",
+      "description": "Show message to all players",
+      "example": "showMessageToAllPlayers: %{self.playerName} 占领了一个点"
+    },
+    {
+      "name": "takeResources",
+      "type": "string",
+      "description": "Take resources",
+      "example": "takeResources: hp=5, gold=10"
+    },
+    {
+      "name": "convertResource_from",
+      "type": "string",
+      "description": "Convert resource from",
+      "example": "convertResource_from: juice"
+    },
+    {
+      "name": "convertResource_to",
+      "type": "string",
+      "description": "Convert resource to",
+      "example": "convertResource_to: sauce"
+    },
+    {
+      "name": "temporarilyAddTags",
+      "type": "string",
+      "description": "Temporarily add tags",
+      "example": "temporarilyAddTags: emptyJuice"
+    },
+    {
+      "name": "temporarilyRemoveTags",
+      "type": "string",
+      "description": "Temporarily remove tags",
+      "example": "temporarilyRemoveTags: fullJuice"
+    },
+    {
+      "name": "resetToDefaultTags",
+      "type": "bool",
+      "description": "Reset to default tags (true/false)",
+      "example": "resetToDefaultTags: true"
+    },
+    {
+      "name": "addGlobalTeamTags",
+      "type": "string",
+      "description": "Add global team tags",
+      "example": "addGlobalTeamTags: upgrade_energized"
+    },
+    {
+      "name": "removeGlobalTeamTags",
+      "type": "string",
+      "description": "Remove global team tags",
+      "example": "removeGlobalTeamTags: buff_immune"
+    },
+    {
+      "name": "disconnectFromParent",
+      "type": "bool",
+      "description": "Disconnect from parent (true/false)",
+      "example": "disconnectFromParent: true"
+    },
+    {
+      "name": "attachments_addNewUnits",
+      "type": "string",
+      "description": "Attachments add new units",
+      "example": "attachments_addNewUnits: coreDefense*3"
+    },
+    {
+      "name": "attachments_deleteNumUnits",
+      "type": "int",
+      "description": "Attachments delete number units",
+      "example": "attachments_deleteNumUnits: 3"
+    },
+    {
+      "name": "addAllActionCooldownsTime",
+      "type": "float / s",
+      "description": "Add all action cooldowns time",
+      "example": "addAllActionCooldownsTime: 4s"
+    },
+    {
+      "name": "addActionCooldownTime",
+      "type": "float / s",
+      "description": "Add action cooldown time",
+      "example": "addActionCooldownTime: 20s"
+    },
+    {
+      "name": "clearAllActionCooldowns",
+      "type": "bool",
+      "description": "Clear all action cooldowns (true/false)",
+      "example": "clearAllActionCooldowns: true"
+    },
+    {
+      "name": "switchToNeutralTeam",
+      "type": "bool",
+      "description": "Switch to neutral team (true/false)",
+      "example": "switchToNeutralTeam: false"
+    },
+    {
+      "name": "switchToAggressiveTeam",
+      "type": "bool",
+      "description": "Switch to aggressive team (true/false)",
+      "example": "switchToAggressiveTeam: true"
+    },
+    {
+      "name": "switchToTeam",
+      "type": "string",
+      "description": "Switch to team",
+      "example": "switchToTeam: 2"
+    },
+    {
+      "name": "alwaysSinglePress",
+      "type": "bool",
+      "description": "Always single press (true/false)",
+      "example": "alwaysSinglePress: true"
+    }
+  ]
+}

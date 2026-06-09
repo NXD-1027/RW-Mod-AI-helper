@@ -1,0 +1,14 @@
+{
+  "name": "displayType",
+  "data": [
+    { "name": "none", "description": "无" },
+    { "name": "rally", "description": "集结点" },
+    { "name": "upgrade", "description": "升级" },
+    { "name": "queueUnit", "description": "队列单位" },
+    { "name": "building", "description": "建筑" },
+    { "name": "action", "description": "动作" },
+    { "name": "infoOnly", "description": "仅信息" },
+    { "name": "infoOnlyNoBox", "description": "仅信息无框" },
+    { "name": "infoOnlyStockpile", "description": "库存信息" }
+  ]
+}

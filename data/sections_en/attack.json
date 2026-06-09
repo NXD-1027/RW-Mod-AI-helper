@@ -1,0 +1,138 @@
+{
+  "name": "attack",
+  "description": "攻击属性",
+  "data": [
+    {
+      "name": "canAttack",
+      "type": "bool",
+      "description": "Can attack",
+      "example": "canAttack: true"
+    },
+    {
+      "name": "canAttackFlyingUnits",
+      "type": "bool",
+      "description": "Can attack flying units",
+      "example": "canAttackFlyingUnits: true"
+    },
+    {
+      "name": "canAttackLandUnits",
+      "type": "bool",
+      "description": "Can attack land units",
+      "example": "canAttackLandUnits: true"
+    },
+    {
+      "name": "canAttackUnderwaterUnits",
+      "type": "bool",
+      "description": "Can attack underwater units",
+      "example": "canAttackUnderwaterUnits: false"
+    },
+    {
+      "name": "canAttackNotTouchingWaterUnits",
+      "type": "bool",
+      "description": "Can attack not touching water units (true/false)",
+      "example": "canAttackNotTouchingWaterUnits: false"
+    },
+    {
+      "name": "canOnlyAttackUnitsWithTags",
+      "type": "string",
+      "description": "Can only attack units with tags",
+      "example": "canOnlyAttackUnitsWithTags: metallic"
+    },
+    {
+      "name": "canOnlyAttackUnitsWithoutTags",
+      "type": "string",
+      "description": "Can only attack units without tags",
+      "example": "canOnlyAttackUnitsWithoutTags: corrosive"
+    },
+    {
+      "name": "maxAttackRange",
+      "type": "float",
+      "description": "Max attack range (pixels)",
+      "example": "maxAttackRange: 120"
+    },
+    {
+      "name": "shootDelay",
+      "type": "float / s",
+      "description": "Shoot delay (frames or seconds like 5s)",
+      "example": "shootDelay: 5s"
+    },
+    {
+      "name": "shootDelayMultiplier",
+      "type": "float",
+      "description": "Shoot delay multiplier",
+      "example": "shootDelayMultiplier: 0.75"
+    },
+    {
+      "name": "shootDamageMultiplier",
+      "type": "float",
+      "description": "Shoot damage multiplier",
+      "example": "shootDamageMultiplier: 1.5"
+    },
+    {
+      "name": "turretMultiTargeting",
+      "type": "bool",
+      "description": "Turret multi targeting (true/false)",
+      "example": "turretMultiTargeting: true"
+    },
+    {
+      "name": "isMelee",
+      "type": "bool",
+      "description": "Is melee (true/false)",
+      "example": "isMelee: false"
+    },
+    {
+      "name": "meleeEngangementDistance",
+      "type": "int",
+      "description": "Melee engangement distance",
+      "example": "meleeEngangementDistance: 400"
+    },
+    {
+      "name": "turretRotateWithBody",
+      "type": "bool",
+      "description": "Turret rotate with body (true/false)",
+      "example": "turretRotateWithBody: true"
+    },
+    {
+      "name": "attackMovement",
+      "type": "attackMovement",
+      "description": "Attack movement",
+      "example": "attackMovement: normal"
+    },
+    {
+      "name": "dieOnAttack",
+      "type": "bool",
+      "description": "Die on attack (true/false)",
+      "example": "dieOnAttack: false"
+    },
+    {
+      "name": "isFixedFiring",
+      "type": "bool",
+      "description": "Is fixed firing (true/false)",
+      "example": "isFixedFiring: false"
+    },
+    {
+      "name": "aimOffsetSpread",
+      "type": "float",
+      "description": "Aim offset spread",
+      "example": "aimOffsetSpread: 0"
+    },
+    {
+      "name": "stopTargetingAfterFiring",
+      "type": "bool",
+      "description": "Stop targeting after firing (true/false)",
+      "example": "stopTargetingAfterFiring: true"
+    },
+    {
+      "name": "disablePassiveTargeting",
+      "type": "bool",
+      "description": "Disabled passive targeting (true/false)",
+      "example": "disablePassiveTargeting: true"
+    },
+    {
+      "name": "showRangeUIGuide",
+      "type": "bool",
+      "description": "Show range u i guide (true/false)",
+      "example": "showRangeUIGuide: true"
+    }
+  ]
+}

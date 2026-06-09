@@ -1,0 +1,41 @@
+{
+  "name": "displayType",
+  "data": [
+    {
+      "name": "none",
+      "description": "none"
+    },
+    {
+      "name": "rally",
+      "description": "rally"
+    },
+    {
+      "name": "upgrade",
+      "description": "upgrade"
+    },
+    {
+      "name": "queueUnit",
+      "description": "queueUnit"
+    },
+    {
+      "name": "building",
+      "description": "building"
+    },
+    {
+      "name": "action",
+      "description": "action"
+    },
+    {
+      "name": "infoOnly",
+      "description": "infoOnly"
+    },
+    {
+      "name": "infoOnlyNoBox",
+      "description": "infoOnlyNoBox"
+    },
+    {
+      "name": "infoOnlyStockpile",
+      "description": "infoOnlyStockpile"
+    }
+  ]
+}

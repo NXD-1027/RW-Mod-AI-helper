@@ -1,0 +1,36 @@
+{
+  "name": "template",
+  "description": "模板",
+  "data": [
+    {
+      "name": "@copyFromSection",
+      "type": "string",
+      "description": "@copy from section",
+      "example": "@copyFromSection: [attack]"
+    },
+    {
+      "name": "@copyFrom_skipThisSection",
+      "type": "bool",
+      "description": "@copy from skip this section (true/false)",
+      "example": "@copyFrom_skipThisSection: true"
+    },
+    {
+      "name": "@define",
+      "type": "string",
+      "description": "@define",
+      "example": "@define: maxHp = self.mass / 2"
+    },
+    {
+      "name": "@global",
+      "type": "string",
+      "description": "@global",
+      "example": "@global: isCaptured"
+    },
+    {
+      "name": "@memory",
+      "type": "string",
+      "description": "@memory",
+      "example": "@memory: lastTarget"
+    }
+  ]
+}

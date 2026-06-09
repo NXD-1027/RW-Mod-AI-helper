@@ -1,0 +1,25 @@
+{
+  "name": "movement",
+  "description": "移动属性",
+  "data": [
+    { "name": "movementType", "type": "movementType", "description": "移动类型", "example": "movementType: LAND" },
+    { "name": "moveSpeed", "type": "float", "description": "移动速度", "example": "moveSpeed: 1.2" },
+    { "name": "moveAccelerationSpeed", "type": "float", "description": "加速度", "example": "moveAccelerationSpeed: 0.07" },
+    { "name": "moveDecelerationSpeed", "type": "float", "description": "减速度", "example": "moveDecelerationSpeed: 0.17" },
+    { "name": "reverseSpeedPercentage", "type": "float", "description": "倒车速度比例", "example": "reverseSpeedPercentage: 0.5" },
+    { "name": "maxTurnSpeed", "type": "float", "description": "最大转向速度", "example": "maxTurnSpeed: 4" },
+    { "name": "turnAcceleration", "type": "float", "description": "转向加速度", "example": "turnAcceleration: 1" },
+    { "name": "targetHeight", "type": "float", "description": "飞行高度", "example": "targetHeight: 25" },
+    { "name": "targetHeightDrift", "type": "float", "description": "高度浮动", "example": "targetHeightDrift: 1" },
+    { "name": "startingHeightOffset", "type": "float", "description": "初始高度偏移", "example": "startingHeightOffset: 40" },
+    { "name": "heightChangeRate", "type": "float", "description": "高度变化速率(1.14)", "example": "heightChangeRate: 3" },
+    { "name": "fallingAcceleration", "type": "float", "description": "下落加速度(1.14)", "example": "fallingAcceleration: 0.5" },
+    { "name": "fallingAccelerationDead", "type": "float", "description": "死亡下落加速度(1.14)", "example": "fallingAccelerationDead: 0.2" },
+    { "name": "slowDeathFall", "type": "bool", "description": "缓慢坠落（大型飞机）", "example": "slowDeathFall: true" },
+    { "name": "landOnGround", "type": "bool", "description": "闲置时降落（飞行单位）", "example": "landOnGround: false" },
+    { "name": "moveSlidingMode", "type": "bool", "description": "漂移模式", "example": "moveSlidingMode: true" },
+    { "name": "moveIgnoringBody", "type": "bool", "description": "无视身体朝向移动", "example": "moveIgnoringBody: true" },
+    { "name": "moveSlidingDir", "type": "int", "description": "漂移方向", "example": "moveSlidingDir: 180" },
+    { "name": "joinsGroupFormations", "type": "bool", "description": "加入编队", "example": "joinsGroupFormations: false" }
+  ]
+}

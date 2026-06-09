@@ -1,0 +1,13 @@
+{
+  "name": "attackMovement",
+  "data": [
+    {
+      "name": "normal",
+      "description": "normal"
+    },
+    {
+      "name": "bomber",
+      "description": "bomber"
+    }
+  ]
+}

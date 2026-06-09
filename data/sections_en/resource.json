@@ -1,0 +1,36 @@
+{
+  "name": "resource",
+  "description": "本地资源",
+  "data": [
+    {
+      "name": "displayName",
+      "type": "string",
+      "description": "Display name",
+      "example": "displayName: 弹药"
+    },
+    {
+      "name": "displayNameShort",
+      "type": "string",
+      "description": "Display name short",
+      "example": "displayNameShort: 弹"
+    },
+    {
+      "name": "hidden",
+      "type": "bool",
+      "description": "Hidden (true/false)",
+      "example": "hidden: false"
+    },
+    {
+      "name": "equivalentGlobalResourceForAI",
+      "type": "string",
+      "description": "Equivalent global resource for a i",
+      "example": "equivalentGlobalResourceForAI: credits"
+    },
+    {
+      "name": "displayRoundedDown",
+      "type": "bool",
+      "description": "Display rounded down (true/false)",
+      "example": "displayRoundedDown: true"
+    }
+  ]
+}
