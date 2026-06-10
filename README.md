@@ -21,7 +21,7 @@
 | 枚举值补全 | 15 种枚举类型：`movementType`（LAND/HOVER/AIR…）、`drawLayer`、`teamColoringMode` 等 |
 | 示例默认值 + Tab 跳转 | 选中字段自动填入示例值（如 `maxHp: 500`），按 Tab 跳到下一个编辑点 |
 | 单位名补全 | 自动扫描工作区所有 `.ini` / `.template` 文件，在 `copyFrom` / `spawnUnits` / `builtFrom_*_name` 等引用字段中提示单位名 |
-| 资源路径补全 | 在 `image:` / `sound:` / `icon:` 等字段中输入时，自动补全项目内的图片（png/jpg/webp）和音频（ogg/wav/mp3）路径，支持 `ROOT:` 前缀 |
+| 资源路径补全 | 在 `image:` / `sound:` / `icon:` 等字段中输入时，自动补全项目内的图片（png）和音频（ogg/wav）路径，支持 `ROOT:` 前缀 |
 | @memory 变量补全 | 识别 `@memory` 定义后，在 `memory.` 后或 `setUnitMemory:` / `updateUnitMemory:` 字段中提示已定义的变量名 |
 | **完整数据覆盖** | 基于 1.15 版官方参数表：18 个 section 字段定义 + 15 种枚举值。支持秒单位（`buildSpeed: 3s`）、多资源（`price: credits=500, energy=10`）、LogicBoolean、模板变量等高级语法，不会误判为错误 |
 

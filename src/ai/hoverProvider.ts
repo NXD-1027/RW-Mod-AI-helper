@@ -50,7 +50,7 @@ export class RwHoverProvider implements vscode.HoverProvider {
 
     // 只处理含 "image"/"icon" 的键名或直接图片路径
     const isImageKey = key.includes('image') || key.includes('icon');
-    const isImageExt = /\.(png|jpg|jpeg|gif|bmp|webp|tga)$/i.test(value);
+    const isImageExt = /\.(png)$/i.test(value);
     if (!isImageKey && !isImageExt) return null;
 
     // 检查光标是否在值区域

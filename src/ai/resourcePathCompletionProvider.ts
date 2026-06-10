@@ -5,8 +5,8 @@ import { t } from '../i18n';
 const MAX_RESOURCE_FILES = 1000;
 const CACHE_TTL = 5000;
 
-const IMAGE_EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp', 'bmp'];
-const AUDIO_EXTENSIONS = ['ogg', 'wav', 'mp3'];
+const IMAGE_EXTENSIONS = ['png'];
+const AUDIO_EXTENSIONS = ['ogg', 'wav'];
 const RESOURCE_EXTENSIONS = [...IMAGE_EXTENSIONS, ...AUDIO_EXTENSIONS];
 
 const FILE_FIELD_NAMES = new Set([

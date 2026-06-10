@@ -50,7 +50,7 @@ export class IniOutlineProvider implements vscode.DocumentSymbolProvider {
           if (/^\d+\.?\d*$/.test(value)) kind = vscode.SymbolKind.Number;
           else if (/^(true|false)$/i.test(value)) kind = vscode.SymbolKind.Boolean;
           else if (/^#[0-9a-f]{3,8}/i.test(value)) kind = vscode.SymbolKind.Constant;
-          else if (/\.(png|jpg|wav|ogg|gif)$/i.test(value)) kind = vscode.SymbolKind.File;
+          else if (/\.(png|wav|ogg)$/i.test(value)) kind = vscode.SymbolKind.File;
 
           curSec.children!.push(
             new vscode.DocumentSymbol(key, value, kind, line.range, line.range)

@@ -7,8 +7,8 @@ const RESOURCE_DIAGNOSTIC_SOURCE = 'rwMod-resources';
 
 const MAX_CANDIDATES = 5;
 
-const IMAGE_EXTS = new Set(['png', 'jpg', 'jpeg', 'bmp', 'webp', 'gif', 'tga']);
-const AUDIO_EXTS = new Set(['ogg', 'wav', 'mp3']);
+const IMAGE_EXTS = new Set(['png']);
+const AUDIO_EXTS = new Set(['ogg', 'wav']);
 
 export class ResourceQuickFixProvider implements vscode.CodeActionProvider {
 
