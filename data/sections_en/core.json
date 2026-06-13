@@ -199,6 +199,24 @@
       "type": "string",
       "description": "Tags",
       "example": "tags: tank, heavy"
+    },
+    {
+      "name": "copyFrom",
+      "type": "string",
+      "description": "Inherit unit data from another ini/template file, supports multiple files (comma separated)",
+      "example": "copyFrom: base.template"
+    },
+    {
+      "name": "overrideAndReplace",
+      "type": "string",
+      "description": "Overrides another unit with this unit",
+      "example": "overrideAndReplace: builder, combatEngineer"
+    },
+    {
+      "name": "dont_load",
+      "type": "bool",
+      "description": "Do not load this unit, useful for base template files used by copyFrom",
+      "example": "dont_load: true"
     }
   ]
 }

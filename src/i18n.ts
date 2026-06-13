@@ -60,6 +60,46 @@ const strings: Strings = {
     zh: '🔍 检测到图片路径: `{0}`\n\n未找到文件，请确认路径是否正确。',
     en: '🔍 Image path detected: `{0}`\n\nFile not found. Please verify the path.',
   },
+  chineseColon: {
+    zh: '这里使用了中文冒号 `：`，游戏只识别英文冒号 `:`',
+    en: 'Chinese colon `：` is used here. The game only recognizes ASCII colon `:`',
+  },
+  replaceChineseColon: {
+    zh: '替换为英文冒号 :',
+    en: 'Replace with ASCII colon :',
+  },
+  fieldCaseMismatch: {
+    zh: '字段大小写可能错误: {0}，建议使用 {1}',
+    en: 'Field casing may be wrong: {0}. Use {1}',
+  },
+  unknownField: {
+    zh: '未知字段 "{0}"，当前段落 {1} 中没有这个字段',
+    en: 'Unknown field "{0}". It is not defined in section {1}',
+  },
+  fieldWrongSection: {
+    zh: '字段 "{0}" 不属于 {1}，可能应放在 {2}',
+    en: 'Field "{0}" does not belong to {1}; it may belong in {2}',
+  },
+  projectileRefNotFound: {
+    zh: '弹道引用不存在: {0}',
+    en: 'Projectile reference not found: {0}',
+  },
+  turretRefNotFound: {
+    zh: '炮塔引用不存在: {0}',
+    en: 'Turret reference not found: {0}',
+  },
+  projectileRef: {
+    zh: '弹道引用',
+    en: 'Projectile reference',
+  },
+  turretRef: {
+    zh: '炮塔引用',
+    en: 'Turret reference',
+  },
+  jumpToSection: {
+    zh: '跳转到 {0}',
+    en: 'Jump to {0}',
+  },
 
   // ── 内存变量补全 ──
   defineMemoryVar: {

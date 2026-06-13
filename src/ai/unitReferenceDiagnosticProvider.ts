@@ -7,7 +7,6 @@ const MAX_SCAN_FILES = 500;
 const BASE_EXTENSIONS = ['ini', 'template'];
 
 const UNIT_REFERENCE_FIELDS = new Set([
-  'copyfrom',
   'spawnunit',
   'spawnunits',
   'produceunits',
@@ -20,6 +19,7 @@ const UNIT_REFERENCE_FIELDS = new Set([
   'addunitsintotransport',
   'oncreatespawnunitof',
   'addwaypointunittype',
+  'overrideandreplace',
 ]);
 
 const IGNORED_REFERENCE_VALUES = new Set([

@@ -3,10 +3,12 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const packageJsonPath = path.join(root, 'package.json');
-const extensionPath = path.join(root, 'src', 'extension.ts');
+const srcDir = path.join(root, 'src');
 
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
-const extensionSource = fs.readFileSync(extensionPath, 'utf8');
+const extensionSource = scanTsFiles(srcDir)
+  .map((filePath) => fs.readFileSync(filePath, 'utf8'))
+  .join('\n');
 
 const contributedCommands = new Set(
   (packageJson.contributes?.commands || [])
@@ -31,6 +33,19 @@ const internalCommands = new Set([
 
 function diff(left, right) {
   return [...left].filter((item) => !right.has(item)).sort();
+}
+
+function scanTsFiles(dir) {
+  const files = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...scanTsFiles(fullPath));
+    } else if (entry.isFile() && entry.name.endsWith('.ts')) {
+      files.push(fullPath);
+    }
+  }
+  return files;
 }
 
 const problems = [];

@@ -55,9 +55,10 @@ export class AiGuardianProvider {
 
     // 解析文档结构：段落名 → 该段落内存在的字段名集合
     const sections = this.parseSections(lines);
+    const requiredFields = this.getRequiredFields();
 
     for (const [sectionName, existingKeys] of sections) {
-      const required = REQUIRED_FIELDS[sectionName];
+      const required = requiredFields[sectionName];
       if (!required) continue;
 
       for (const field of required) {
@@ -92,6 +93,28 @@ export class AiGuardianProvider {
     }
 
     return diagnostics;
+  }
+
+  private getRequiredFields(): Record<string, string[]> {
+    const merged: Record<string, string[]> = {};
+    for (const [section, fields] of Object.entries(REQUIRED_FIELDS)) {
+      merged[section] = [...fields];
+    }
+
+    const custom = vscode.workspace.getConfiguration('rwMod').get<Record<string, string[]>>('customRequiredFields') || {};
+    for (const [section, fields] of Object.entries(custom)) {
+      const normalizedSection = this.normalizeSectionName(section);
+      const list = merged[normalizedSection] || [];
+      for (const field of fields || []) {
+        const normalizedField = field.trim().toLowerCase();
+        if (normalizedField && !list.includes(normalizedField)) {
+          list.push(normalizedField);
+        }
+      }
+      merged[normalizedSection] = list;
+    }
+
+    return merged;
   }
 
   /**

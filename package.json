@@ -2,10 +2,10 @@
   "name": "rw-mod-ai-helper",
   "displayName": "铁锈模组智能小帮手",
   "description": "铁锈战争MOD开发辅助工具 - AI驱动，智能补全，一键打包",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "rw-modder",
   "icon": "assets/icon.png",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "repository": {
     "type": "git",
     "url": "https://github.com/NXD-1027/RW-Mod-AI-helper.git"
@@ -43,7 +43,19 @@
     "onCommand:rwMod.addCustomExtension",
     "onCommand:rwMod.removeCustomExtension",
     "onCommand:rwMod.listCustomExtensions",
-    "onCommand:rwMod.aiModifyFile"
+    "onCommand:rwMod.aiModifyFile",
+    "onCommand:rwMod.showUnitList",
+    "onCommand:rwMod.showModOverview",
+    "onCommand:rwMod.findUnusedResources",
+    "onCommand:rwMod.bulkAdjustBalance",
+    "onCommand:rwMod.safeRenameSymbol",
+    "onCommand:rwMod.exportModDocs",
+    "onCommand:rwMod.openUnitWizard",
+    "onCommand:rwMod.generateModInfo",
+    "onCommand:rwMod.runBattleSimulator",
+    "onCommand:rwMod.insertBuiltinTemplate",
+    "onCommand:rwMod.addBookmark",
+    "onCommand:rwMod.listBookmarks"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -129,6 +141,54 @@
       {
         "command": "rwMod.aiModifyFile",
         "title": "AI 修改文件"
+      },
+      {
+        "command": "rwMod.showUnitList",
+        "title": "RW Mod: Show Unit List / 单位列表"
+      },
+      {
+        "command": "rwMod.showModOverview",
+        "title": "RW Mod: Show Mod Overview / MOD 体检概览"
+      },
+      {
+        "command": "rwMod.findUnusedResources",
+        "title": "RW Mod: Find Unused Resources / 未使用资源检测"
+      },
+      {
+        "command": "rwMod.bulkAdjustBalance",
+        "title": "RW Mod: Bulk Adjust Balance / 批量调整数值"
+      },
+      {
+        "command": "rwMod.safeRenameSymbol",
+        "title": "RW Mod: Safe Rename Symbol / 安全重命名"
+      },
+      {
+        "command": "rwMod.exportModDocs",
+        "title": "RW Mod: Export Mod Docs / 导出 MOD 文档"
+      },
+      {
+        "command": "rwMod.openUnitWizard",
+        "title": "RW Mod: Open Unit Wizard / 单位创建向导"
+      },
+      {
+        "command": "rwMod.generateModInfo",
+        "title": "RW Mod: Generate Mod Info / 生成 mod-info"
+      },
+      {
+        "command": "rwMod.runBattleSimulator",
+        "title": "RW Mod: Run Battle Simulator / 战斗模拟器"
+      },
+      {
+        "command": "rwMod.insertBuiltinTemplate",
+        "title": "RW Mod: Insert Builtin Template / 插入内置模板"
+      },
+      {
+        "command": "rwMod.addBookmark",
+        "title": "RW Mod: Add Bookmark / 添加书签"
+      },
+      {
+        "command": "rwMod.listBookmarks",
+        "title": "RW Mod: List Bookmarks / 查看书签"
       }
     ],
     "menus": {
@@ -175,7 +235,8 @@
           "RW MOD"
         ],
         "extensions": [
-          ".ini"
+          ".ini",
+          ".template"
         ],
         "configuration": "./language-configuration.json"
       }
@@ -220,6 +281,11 @@
           "type": "string",
           "default": "",
           "description": "MOD 知识库目录（存放 Wiki/教程/示例的文件夹）"
+        },
+        "rwMod.customRequiredFields": {
+          "type": "object",
+          "default": {},
+          "description": "自定义必填字段规则，格式如 {\"core\": [\"description\"], \"movement\": [\"movementType\"]}"
         }
       }
     }

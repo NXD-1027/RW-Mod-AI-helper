@@ -20,6 +20,15 @@ import { UnitReferenceDiagnosticProvider } from './ai/unitReferenceDiagnosticPro
 import { ResourceQuickFixProvider } from './ai/resourceQuickFixProvider';
 import { MemoryDiagnosticProvider } from './ai/memoryDiagnosticProvider';
 import { AiGuardianProvider } from './ai/aiGuardian';
+import { UnknownFieldDiagnosticProvider, UnknownFieldQuickFixProvider } from './ai/unknownFieldDiagnosticProvider';
+import {
+  SectionReferenceCompletionProvider,
+  SectionReferenceDiagnosticProvider,
+  SectionReferenceDocumentLinkProvider,
+  SectionReferenceQuickFixProvider,
+} from './ai/sectionReferenceProvider';
+import { registerLocalTools } from './tools/localTools';
+import { ReferenceFreshnessDiagnosticProvider } from './ai/referenceFreshnessDiagnosticProvider';
 
 // 全局单例
 let knowledgeBase: KnowledgeBase;
@@ -47,6 +56,7 @@ interface KnowledgeLoadReport {
  */
 export async function activate(context: vscode.ExtensionContext) {
   console.log('[MOD助手] 激活中...');
+  registerLocalTools(context);
 
   // 关闭 rusted-warfare 语言的单词补全，避免干扰
   try {
@@ -352,6 +362,23 @@ export async function activate(context: vscode.ExtensionContext) {
     )
   );
 
+  // ── 注册同文件炮塔/弹道引用补全 ──
+  const sectionReferenceCompletionProvider = new SectionReferenceCompletionProvider();
+  context.subscriptions.push(
+    vscode.languages.registerCompletionItemProvider(
+      { language: 'rusted-warfare' },
+      sectionReferenceCompletionProvider,
+      ':', ','
+    )
+  );
+  context.subscriptions.push(
+    vscode.languages.registerCompletionItemProvider(
+      { language: 'ini' },
+      sectionReferenceCompletionProvider,
+      ':', ','
+    )
+  );
+
   // ── 注册跨文件引用跳转 ──
   const documentLinkProvider = new RwDocumentLinkProvider();
   context.subscriptions.push(
@@ -364,6 +391,21 @@ export async function activate(context: vscode.ExtensionContext) {
     vscode.languages.registerDocumentLinkProvider(
       { language: 'ini' },
       documentLinkProvider
+    )
+  );
+
+  // ── 注册同文件炮塔/弹道引用跳转 ──
+  const sectionReferenceDocumentLinkProvider = new SectionReferenceDocumentLinkProvider();
+  context.subscriptions.push(
+    vscode.languages.registerDocumentLinkProvider(
+      { language: 'rusted-warfare' },
+      sectionReferenceDocumentLinkProvider
+    )
+  );
+  context.subscriptions.push(
+    vscode.languages.registerDocumentLinkProvider(
+      { language: 'ini' },
+      sectionReferenceDocumentLinkProvider
     )
   );
 
@@ -396,9 +438,24 @@ export async function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(memoryDiagnostics);
   const aiGuardian = new AiGuardianProvider();
   context.subscriptions.push(aiGuardian);
+  context.subscriptions.push(
+    vscode.workspace.onDidChangeConfiguration(event => {
+      if (event.affectsConfiguration('rwMod.customRequiredFields') && vscode.window.activeTextEditor) {
+        void aiGuardian.refresh(vscode.window.activeTextEditor.document);
+      }
+    })
+  );
+  const unknownFieldDiagnostics = new UnknownFieldDiagnosticProvider();
+  context.subscriptions.push(unknownFieldDiagnostics);
+  const sectionReferenceDiagnostics = new SectionReferenceDiagnosticProvider();
+  context.subscriptions.push(sectionReferenceDiagnostics);
+  const referenceFreshnessDiagnostics = new ReferenceFreshnessDiagnosticProvider();
+  context.subscriptions.push(referenceFreshnessDiagnostics);
 
   // ── 注册资源路径 Quick Fix ──
   const resourceQuickFixProvider = new ResourceQuickFixProvider();
+  const unknownFieldQuickFixProvider = new UnknownFieldQuickFixProvider();
+  const sectionReferenceQuickFixProvider = new SectionReferenceQuickFixProvider();
   context.subscriptions.push(
     vscode.languages.registerCodeActionsProvider(
       { language: 'rusted-warfare' },
@@ -409,6 +466,30 @@ export async function activate(context: vscode.ExtensionContext) {
     vscode.languages.registerCodeActionsProvider(
       { language: 'ini' },
       resourceQuickFixProvider,
+    )
+  );
+  context.subscriptions.push(
+    vscode.languages.registerCodeActionsProvider(
+      { language: 'rusted-warfare' },
+      unknownFieldQuickFixProvider,
+    )
+  );
+  context.subscriptions.push(
+    vscode.languages.registerCodeActionsProvider(
+      { language: 'ini' },
+      unknownFieldQuickFixProvider,
+    )
+  );
+  context.subscriptions.push(
+    vscode.languages.registerCodeActionsProvider(
+      { language: 'rusted-warfare' },
+      sectionReferenceQuickFixProvider,
+    )
+  );
+  context.subscriptions.push(
+    vscode.languages.registerCodeActionsProvider(
+      { language: 'ini' },
+      sectionReferenceQuickFixProvider,
     )
   );
 
@@ -448,6 +529,34 @@ export async function activate(context: vscode.ExtensionContext) {
       void unitReferenceDiagnostics.refresh(event.document);
       void memoryDiagnostics.refresh(event.document);
       void aiGuardian.refresh(event.document);
+      void unknownFieldDiagnostics.refresh(event.document);
+      void sectionReferenceDiagnostics.refresh(event.document);
+      for (const doc of vscode.workspace.textDocuments) {
+        void referenceFreshnessDiagnostics.refresh(doc);
+      }
+    })
+  );
+
+  context.subscriptions.push(
+    vscode.workspace.onDidSaveTextDocument(() => {
+      for (const doc of vscode.workspace.textDocuments) {
+        void referenceFreshnessDiagnostics.refresh(doc);
+      }
+    })
+  );
+
+  context.subscriptions.push(
+    vscode.workspace.onDidOpenTextDocument(document => {
+      refreshDuplicateMarkers(document);
+      void resourceDiagnostics.refresh(document);
+      void unitReferenceDiagnostics.refresh(document);
+      void memoryDiagnostics.refresh(document);
+      void aiGuardian.refresh(document);
+      void unknownFieldDiagnostics.refresh(document);
+      void sectionReferenceDiagnostics.refresh(document);
+      for (const doc of vscode.workspace.textDocuments) {
+        void referenceFreshnessDiagnostics.refresh(doc);
+      }
     })
   );
 
@@ -461,6 +570,9 @@ export async function activate(context: vscode.ExtensionContext) {
         void unitReferenceDiagnostics.refresh(editor.document);
         void memoryDiagnostics.refresh(editor.document);
         void aiGuardian.refresh(editor.document);
+        void unknownFieldDiagnostics.refresh(editor.document);
+        void sectionReferenceDiagnostics.refresh(editor.document);
+        void referenceFreshnessDiagnostics.refresh(editor.document);
       }
     })
   );
@@ -472,6 +584,9 @@ export async function activate(context: vscode.ExtensionContext) {
     void unitReferenceDiagnostics.refresh(vscode.window.activeTextEditor.document);
     void memoryDiagnostics.refresh(vscode.window.activeTextEditor.document);
     void aiGuardian.refresh(vscode.window.activeTextEditor.document);
+    void unknownFieldDiagnostics.refresh(vscode.window.activeTextEditor.document);
+    void sectionReferenceDiagnostics.refresh(vscode.window.activeTextEditor.document);
+    void referenceFreshnessDiagnostics.refresh(vscode.window.activeTextEditor.document);
   }
 
 // ── 注册命令 ──

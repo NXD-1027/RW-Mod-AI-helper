@@ -68,6 +68,107 @@
     "description": "插入炮塔挂点"
   },
 
+  "projectile 弹道": {
+    "prefix": "projectile",
+    "body": [
+      "[projectile_${1:1}]",
+      "directDamage: ${2:30}",
+      "life: ${3:70}",
+      "speed: ${4:6}"
+    ],
+    "description": "插入弹道配置"
+  },
+
+  "生产建筑模板": {
+    "prefix": "factory",
+    "body": [
+      "[core]",
+      "name: ${1:factory}",
+      "displayText: ${2:Factory}",
+      "class: CustomUnitMetadata",
+      "price: ${3:1200}",
+      "maxHp: ${4:1000}",
+      "mass: 9000",
+      "radius: 20",
+      "isBuilding: true",
+      "buildSpeed: 0.001",
+      "",
+      "[graphics]",
+      "image: ${5:factory.png}",
+      "image_shadow: AUTO",
+      "",
+      "[canBuild_1]",
+      "name: ${6:tank}",
+      "pos: 0.1",
+      "",
+      "[movement]",
+      "movementType: NONE",
+      "moveSpeed: 0"
+    ],
+    "description": "插入生产建筑骨架"
+  },
+
+  "飞行单位模板": {
+    "prefix": "airunit",
+    "body": [
+      "[core]",
+      "name: ${1:air_unit}",
+      "displayText: ${2:Air Unit}",
+      "class: CustomUnitMetadata",
+      "price: ${3:1200}",
+      "maxHp: ${4:600}",
+      "mass: 400",
+      "techLevel: 1",
+      "buildSpeed: 0.001",
+      "radius: 12",
+      "",
+      "[graphics]",
+      "image: ${5:air_unit.png}",
+      "image_shadow: AUTO",
+      "",
+      "[attack]",
+      "canAttack: true",
+      "canAttackFlyingUnits: true",
+      "canAttackLandUnits: true",
+      "maxAttackRange: 170",
+      "shootDelay: 80",
+      "",
+      "[turret_1]",
+      "x: 0",
+      "y: 0",
+      "projectile: 1",
+      "",
+      "[projectile_1]",
+      "directDamage: 35",
+      "life: 70",
+      "speed: 7",
+      "",
+      "[movement]",
+      "movementType: AIR",
+      "moveSpeed: ${6:1.2}",
+      "moveAccelerationSpeed: 0.04",
+      "moveDecelerationSpeed: 0.04",
+      "maxTurnSpeed: 3",
+      "turnAcceleration: 0.2"
+    ],
+    "description": "插入飞行单位骨架"
+  },
+
+  "科技升级 action": {
+    "prefix": "upgradeaction",
+    "body": [
+      "[action_${1:upgrade}]",
+      "convertTo: ${2:target_unit}",
+      "price: ${3:1000}",
+      "text: ${4:Upgrade}",
+      "description: ${5:-Upgrade this unit}",
+      "displayType: upgrade",
+      "buildSpeed: ${6:10s}",
+      "pos: ${7:0.1}"
+    ],
+    "description": "插入科技升级 action"
+  },
+
   "maxHp": {
     "prefix": "maxHp",
     "body": ["maxHp: $1"],

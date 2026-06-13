@@ -98,6 +98,11 @@ export class ChatPanel implements vscode.WebviewViewProvider {
           case 'modifyFile':
             vscode.commands.executeCommand('rwMod.aiModifyFile');
             break;
+          case 'runCommand':
+            if (typeof msg.command === 'string' && msg.command.startsWith('rwMod.')) {
+              await vscode.commands.executeCommand(msg.command);
+            }
+            break;
           case 'clearChat':
             this._messages = [];
             this.appendMessage('system', '对话已清空 ✨');

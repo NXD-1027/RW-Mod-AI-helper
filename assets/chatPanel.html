@@ -101,6 +101,16 @@ body {
 .tool-panel { flex: 1; display: flex; flex-direction: column; min-height: 0; padding: 8px; gap: 8px; }
 .tool-panel .result-area { flex: 1; overflow-y: auto; }
 .tool-panel .hint { color: var(--vscode-descriptionForeground); font-size: 11px; text-align: center; padding: 20px 0; }
+.quick-list { flex: 1; overflow-y: auto; padding: 8px; display: flex; flex-direction: column; gap: 10px; }
+.quick-group { display: flex; flex-direction: column; gap: 5px; }
+.quick-title { font-size: 11px; color: var(--vscode-descriptionForeground); padding: 2px 0; }
+.quick-btn {
+  width: 100%; text-align: left; border: 1px solid var(--vscode-panel-border);
+  background: var(--vscode-editor-background); color: var(--vscode-sideBar-foreground);
+  border-radius: 4px; padding: 7px 8px; cursor: pointer; font-size: 12px;
+}
+.quick-btn:hover { background: var(--vscode-list-hoverBackground); }
+.quick-btn small { display: block; color: var(--vscode-descriptionForeground); font-size: 10px; margin-top: 2px; line-height: 1.3; }
 </style>
 </head>
 <body>
@@ -111,8 +121,8 @@ body {
     <button class="tab active" data-tab="chat">💬 Chat</button>
     <button class="tab" data-tab="modify">✏️ Modify</button>
     <button class="tab" data-tab="generate">🔫 Generate</button>
+    <button class="tab" data-tab="quick">⚡ Tools</button>
   </div>
-  <button class="toolbar-clear" id="btnLoadKb">📂 Knowledge</button>
   <button class="toolbar-clear" id="btnClear">🗑️ Clear</button>
 </div>
 
@@ -169,6 +179,40 @@ body {
   </div>
 </div>
 
+<!-- ─── 快捷指令标签页 ─── -->
+<div class="tab-content" id="tab-quick">
+  <div class="quick-list">
+    <div class="quick-group">
+      <div class="quick-title">浏览与体检</div>
+      <button class="quick-btn" data-command="rwMod.showUnitList">单位列表<small>查看单位属性并跳转到文件</small></button>
+      <button class="quick-btn" data-command="rwMod.showModOverview">MOD 体检概览<small>统计单位、资源、体积和数值摘要</small></button>
+      <button class="quick-btn" data-command="rwMod.findUnusedResources">未使用资源检测<small>找出疑似未引用图片和音频</small></button>
+    </div>
+    <div class="quick-group">
+      <div class="quick-title">知识库</div>
+      <button class="quick-btn" data-command="rwMod.selectKnowledgeDir">选择知识库文件夹<small>加载自定义 Wiki、教程、示例和参数资料</small></button>
+    </div>
+    <div class="quick-group">
+      <div class="quick-title">编辑工具</div>
+      <button class="quick-btn" data-command="rwMod.bulkAdjustBalance">批量调整数值<small>对选中单位批量修改 HP、造价、速度等</small></button>
+      <button class="quick-btn" data-command="rwMod.safeRenameSymbol">安全重命名<small>同步替换单位、炮塔、弹道 ID</small></button>
+      <button class="quick-btn" data-command="rwMod.insertBuiltinTemplate">插入内置模板<small>快速插入单位、建筑、炮塔模板</small></button>
+    </div>
+    <div class="quick-group">
+      <div class="quick-title">生成与文档</div>
+      <button class="quick-btn" data-command="rwMod.openUnitWizard">单位创建向导<small>按步骤生成基础单位文件</small></button>
+      <button class="quick-btn" data-command="rwMod.generateModInfo">生成 mod-info<small>创建 MOD 信息文件内容</small></button>
+      <button class="quick-btn" data-command="rwMod.exportModDocs">导出 MOD 文档<small>生成面向阅读的单位文档</small></button>
+      <button class="quick-btn" data-command="rwMod.runBattleSimulator">战斗模拟器<small>简化估算两个单位的 DPS 和 TTK</small></button>
+    </div>
+    <div class="quick-group">
+      <div class="quick-title">书签</div>
+      <button class="quick-btn" data-command="rwMod.addBookmark">添加书签<small>记录当前文件位置</small></button>
+      <button class="quick-btn" data-command="rwMod.listBookmarks">查看书签<small>从书签列表跳回配置位置</small></button>
+    </div>
+  </div>
+</div>
+
 <script nonce="__NONCE__">
 (function() {
   "use strict";
@@ -196,7 +240,7 @@ body {
         if (key && LOCALE[key]) t.textContent = LOCALE[key];
       });
       // 工具栏按钮
-      var btnMap = { btnLoadKb: "btnKnowledge", btnClear: "btnClear" };
+      var btnMap = { btnClear: "btnClear" };
       for (var id in btnMap) {
         var el = getEl(id);
         if (el && LOCALE[btnMap[id]]) el.textContent = LOCALE[btnMap[id]];
@@ -242,10 +286,6 @@ body {
     });
 
     // ── 清空按钮（根据当前标签页清空对应区域） ──
-    getEl("btnLoadKb").addEventListener("click", function() {
-      postMsg("loadKnowledge");
-    });
-
     getEl("btnClear").addEventListener("click", function() {
       if (currentTab === "chat") {
         getEl("chatContainer").innerHTML = "";
@@ -342,6 +382,13 @@ body {
     // ── 事件委托：代码块按钮 ──
     document.addEventListener("click", function(e) {
       var btn = e.target;
+      var quickBtn = e.target;
+      while (quickBtn && !quickBtn.classList.contains("quick-btn")) { quickBtn = quickBtn.parentElement; }
+      if (quickBtn && quickBtn.dataset.command) {
+        postMsg("runCommand", { command: quickBtn.dataset.command });
+        return;
+      }
+
       while (btn && !btn.classList.contains("code-btn")) { btn = btn.parentElement; }
       if (!btn) return;
       var action = btn.dataset.action;

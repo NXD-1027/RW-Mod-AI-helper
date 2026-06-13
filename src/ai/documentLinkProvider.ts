@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import * as path from 'path';
 
 interface UnitReference {
   uri: vscode.Uri;
@@ -16,7 +17,6 @@ let unitIndexCache: UnitIndex | null = null;
 const BASE_EXTENSIONS = ['ini', 'template'];
 
 const UNIT_REFERENCE_FIELDS = new Set([
-  'copyfrom',
   'spawnunit',
   'spawnunits',
   'produceunits',
@@ -40,38 +40,104 @@ export class RwDocumentLinkProvider implements vscode.DocumentLinkProvider {
       return [];
     }
 
-    const unitIndex = await scanWorkspaceUnits();
-    if (unitIndex.size === 0) {
-      return [];
-    }
-
     const links: vscode.DocumentLink[] = [];
 
+    // ── [core] copyFrom: 按文件路径跳转（只处理带 .ini/.template 后缀的值） ──
+    let currentSection = '';
     for (let lineNumber = 0; lineNumber < document.lineCount; lineNumber++) {
       const line = document.lineAt(lineNumber).text;
-      const parsed = parseReferenceLine(line);
-      if (!parsed) {
+
+      // 追踪当前段落
+      const sectionMatch = line.match(/^\s*\[([^\]]+)\]\s*$/);
+      if (sectionMatch) {
+        currentSection = sectionMatch[1].trim().toLowerCase();
         continue;
       }
 
-      for (const token of findUnitTokens(parsed.value, parsed.valueStart)) {
-        const reference = unitIndex.get(token.text);
-        if (!reference) {
-          continue;
-        }
+      if (currentSection !== 'core') continue;
 
-        const range = new vscode.Range(
-          new vscode.Position(lineNumber, token.start),
-          new vscode.Position(lineNumber, token.end)
-        );
-        const link = new vscode.DocumentLink(range, reference.uri);
-        link.tooltip = `跳转到单位: ${token.text}`;
+      const copyMatch = line.match(/^(\s*)copyFrom\s*[:=]\s*(.+)$/i);
+      if (!copyMatch) continue;
+
+      const value = stripInlineComment(copyMatch[2]);
+      const valueStart = line.indexOf(copyMatch[2]);
+
+      for (const token of splitCopyFromLink(value, valueStart)) {
+        const targetUri = await resolveFileUri(document.uri, token.text);
+        if (!targetUri) continue;
+
+        const range = new vscode.Range(lineNumber, token.start, lineNumber, token.end);
+        const link = new vscode.DocumentLink(range, targetUri);
+        link.tooltip = `跳转到文件: ${token.text}`;
         links.push(link);
+      }
+    }
+
+    // ── 其他单位名引用：按名称匹配跳转 ──
+    const unitIndex = await scanWorkspaceUnits();
+    if (unitIndex.size > 0) {
+      for (let lineNumber = 0; lineNumber < document.lineCount; lineNumber++) {
+        const line = document.lineAt(lineNumber).text;
+        const parsed = parseReferenceLine(line);
+        if (!parsed) continue;
+
+        for (const token of findUnitTokens(parsed.value, parsed.valueStart)) {
+          const reference = unitIndex.get(token.text);
+          if (!reference) continue;
+
+          const range = new vscode.Range(
+            new vscode.Position(lineNumber, token.start),
+            new vscode.Position(lineNumber, token.end)
+          );
+          const link = new vscode.DocumentLink(range, reference.uri);
+          link.tooltip = `跳转到单位: ${token.text}`;
+          links.push(link);
+        }
       }
     }
 
     return links;
   }
+}
+
+/** 提取 copyFrom 中带 .ini/.template 后缀的片段，用于文件跳转 */
+function splitCopyFromLink(value: string, offset: number): Array<{ text: string; start: number; end: number }> {
+  const result: Array<{ text: string; start: number; end: number }> = [];
+  const partRe = /[^,]+/g;
+  let match: RegExpExecArray | null;
+  while ((match = partRe.exec(value)) !== null) {
+    const raw = match[0];
+    const leading = raw.match(/^\s*/)?.[0].length || 0;
+    const text = raw.slice(leading).trim().replace(/^['"]|['"]$/g, '');
+    if (!text || !/\.(ini|template)$/i.test(text)) continue;
+    const start = offset + match.index + leading;
+    result.push({ text, start, end: start + text.length });
+  }
+  return result;
+}
+
+/** 解析 copyFrom 文件路径，返回磁盘上真实存在的文件 URI */
+async function resolveFileUri(
+  documentUri: vscode.Uri,
+  rawValue: string,
+): Promise<vscode.Uri | null> {
+  const clean = rawValue.replace(/^ROOT:/i, '').replace(/^CUSTOM:/i, '').trim();
+  const dir = path.dirname(documentUri.fsPath);
+  const candidates = [
+    vscode.Uri.file(path.join(dir, clean)),
+    ...((vscode.workspace.workspaceFolders || []).map(folder =>
+      vscode.Uri.file(path.join(folder.uri.fsPath, clean))
+    )),
+  ];
+  for (const candidate of candidates) {
+    try {
+      await vscode.workspace.fs.stat(candidate);
+      return candidate;
+    } catch {
+      continue;
+    }
+  }
+  return null;
 }
 
 async function scanWorkspaceUnits(): Promise<Map<string, UnitReference>> {
